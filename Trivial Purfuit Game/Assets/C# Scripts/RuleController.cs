@@ -29,7 +29,7 @@ public class RuleController : MonoBehaviour
     }
 
 
-    enum locationColor
+    enum LocationColor
     {
         Red,
         Blue,

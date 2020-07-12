@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -24,6 +25,7 @@ public class QuestionDatabase : MonoBehaviour
     private int _answer;
 
     string databasePath = "Assets/TextFiles/test.csv";
+    private static System.Random random = new System.Random();
 
     private string _databaseFile = "QandA.csv";
     
@@ -135,8 +137,16 @@ public class QuestionDatabase : MonoBehaviour
     //takes in a list of questions (redlist, bluelist etc) and shuffles the order of those questions 
     //so that the questions are delivered in a different order every game
     private void ShuffleQuestions(List<string> questions)
-    {
-
+    {       
+        int size = questions.Count;
+        while(size > 1)
+        {
+            size--;
+            int k = random.Next(size + 1);
+            string value = questions[k];
+            questions[k] = questions[size];
+            questions[size] = value;
+        }
     }
     
 
