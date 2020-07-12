@@ -33,20 +33,16 @@ public class CakeSquareStatus : MonoBehaviour
     {
         
     }
-    private void setStatus(int player,int color,bool update)        //setter
+    public void setStatus(int player,int color,bool update)        //setter
     {
         _isFilled[player][color] = update;
     }
 
-    private int getStatus(int player, int color)                    //getter
+    public int getStatus(int player, int color)                    //getter
     {
         return _isFilled[player][color];
     }
 
-    public int provideStatus(int player,int color)
-    {
-        return getStatus(player,color);
-    }
 
     public bool isFull(int player)
     {
