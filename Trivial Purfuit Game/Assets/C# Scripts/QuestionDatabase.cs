@@ -11,6 +11,8 @@ public class QuestionDatabase : MonoBehaviour
     private int _answer;
     
     private string _databaseFile = "QandA.csv";
+    
+    private int _category;
 
     public QuestionDatabase()       //constructor
     {
@@ -56,6 +58,12 @@ public class QuestionDatabase : MonoBehaviour
         //to be implemented
     }
 
+
+    public int updateCategory(int category)
+    {
+        _category = category;
+    }
+
     /// <summary>
     /// /////////////private function ////////////////////////////
     /// </summary>
@@ -65,4 +73,6 @@ public class QuestionDatabase : MonoBehaviour
         //this will load database file
         //to be implemented
     }
+    
+
 }
