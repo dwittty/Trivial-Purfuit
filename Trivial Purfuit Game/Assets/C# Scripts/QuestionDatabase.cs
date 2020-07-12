@@ -37,7 +37,7 @@ public class QuestionDatabase : MonoBehaviour
         return _question;
     }
 
-    public string getMultipleChoide()
+    public string getMultipleChoice()
     {
 
         return _multipleChoice;
