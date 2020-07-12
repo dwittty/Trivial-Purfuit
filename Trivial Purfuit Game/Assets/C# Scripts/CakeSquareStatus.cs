@@ -11,16 +11,7 @@ public class CakeSquareStatus : MonoBehaviour
     public CakeSquareStatus(int numUsers)
     {
         _numUsers = numUsers;
-        _isFilled = new bool[numUsers ,_numColor];
-        for (int i=0;i<numUsers;i++)
-        {
-            for (int j=0;j<_numColor;j++)
-            {
-                _isFilled[i,j] = false;
-            }
-        }
-
-
+        _isFilled = new bool[numUsers ,_numColor];       
     }
     // Start is called before the first frame update
     void Start()
