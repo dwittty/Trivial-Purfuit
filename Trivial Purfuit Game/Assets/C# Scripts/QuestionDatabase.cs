@@ -62,6 +62,7 @@ public class QuestionDatabase : MonoBehaviour
     public int updateCategory(int category)
     {
         _category = category;
+        return _category;
     }
 
     /// <summary>

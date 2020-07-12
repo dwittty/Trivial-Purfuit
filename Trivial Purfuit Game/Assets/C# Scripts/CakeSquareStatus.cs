@@ -16,7 +16,7 @@ public class CakeSquareStatus : MonoBehaviour
         {
             for (int j=0;j<_numColor;j++)
             {
-                _isFilled[i][j] = false;
+                _isFilled[i,j] = false;
             }
         }
 
@@ -35,22 +35,22 @@ public class CakeSquareStatus : MonoBehaviour
     }
     public void setStatus(int player,int color,bool update)        //setter
     {
-        _isFilled[player][color] = update;
+        _isFilled[player,color] = update;
     }
 
-    public int getStatus(int player, int color)                    //getter
+    public bool getStatus(int player, int color)                    //getter
     {
-        return _isFilled[player][color];
+        return _isFilled[player,color];
     }
 
 
     public bool isFull(int player)
     {
-        bool temp = true;
+       bool temp = true;
        for (int i=0;i<_numColor;i++)
         {
 
-            if (_isFilled[player][i]==false)
+            if (_isFilled[player,i]==false)
             {
                 temp = false;
             }

@@ -14,7 +14,7 @@ public class RuleController : MonoBehaviour
     private int _userLocationY;
     private int _locationColor;
     private RandomNumberGeneratorDice _rng;
-    private QuestionDatabse _qdb;
+    private QuestionDatabase _qdb;
     private CakeSquareStatus _css;
 
     private bool _winnerExist;
@@ -23,7 +23,7 @@ public class RuleController : MonoBehaviour
     {
         //generate instances
         _rng = new RandomNumberGeneratorDice();     
-        _qdb = new QuestionDatabse();
+        _qdb = new QuestionDatabase();
         _css = new CakeSquareStatus(_numUsers);
         _winnerExist = false;
     }
