@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CakeSquareStatus : MonoBehaviour
+public class CakeSquareStatus
 {
     private bool[,] _isFilled;
     private int _numColor = 4;
