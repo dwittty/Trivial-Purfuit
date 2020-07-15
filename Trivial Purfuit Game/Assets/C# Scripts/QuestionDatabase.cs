@@ -6,7 +6,7 @@ using UnityEditor;
 using System.IO;
 using System.Linq;
 
-public class QuestionDatabase : MonoBehaviour
+public class QuestionDatabase
 {
     // Start is called before the first frame update
     public List<Question> BlueQuestions { get; set; }
@@ -33,8 +33,8 @@ public class QuestionDatabase : MonoBehaviour
 
     public QuestionDatabase()       //constructor
     {
-        loadFile();
-        updateQuestionSet();
+        //loadFile();
+        //updateQuestionSet();
     }
 
 
