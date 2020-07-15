@@ -4,15 +4,17 @@ using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class RuleController : MonoBehaviour
+public class RuleController 
 {
     //private variables
-    private int _numUsers;
+    private int _numUsers=2;
     private int _userNumber;
     private string _userName;
     private int _userLocationX;
     private int _userLocationY;
     private int _locationColor;
+    private int _selectedAnswer;
+
     private RandomNumberGeneratorDice _rng;
     private QuestionDatabase _qdb;
     private CakeSquareStatus _css;
@@ -91,11 +93,13 @@ public class RuleController : MonoBehaviour
 
     public int rollDice()
     {
+        Debug.Log($"RuleController asks RandomNumberGenerator to provide dice number.");
         return _rng.rollDice();
     }
 
     public string sendQuestion()
     {
+        Debug.Log($"RuleController asks QuestionDB to update question and answer.");
         return _qdb.getQuestion();
     }
 
@@ -113,14 +117,28 @@ public class RuleController : MonoBehaviour
         }
         else
         {
+            Debug.Log($"Rule controller notifies Wrong answer. Turn over");
             return false;
         }
 
     }
 
+    public void receiveAnswer(int answer)
+    {
+        _selectedAnswer = answer;
+    }
+
+
+    public int getAnswer()
+    {
+        Debug.Log($"Rule controller is notified that User selected {_selectedAnswer} as an answer.");
+        return _selectedAnswer;
+    }
+
 
     public bool sendUpdatedCakeSquare()
     {
+        Debug.Log($"RuleController asks cake square to update status.");
         return _css.getStatus(_userNumber, _locationColor);
     }
 

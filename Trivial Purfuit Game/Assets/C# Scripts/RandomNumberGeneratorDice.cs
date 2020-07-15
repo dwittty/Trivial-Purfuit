@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 //using RollDice;
 
-public class RandomNumberGeneratorDice 
+public class RandomNumberGeneratorDice
 {
     private int _rand;
     private int _diceMin = 1;

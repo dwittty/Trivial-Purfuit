@@ -53,6 +53,8 @@ public class QuestionDatabase
  
     public string getQuestion()
     {
+        Debug.Log($"QuestionDB updated the question and multiple choice.");
+        _question = "Question";
         return _question;
     }
 
@@ -65,6 +67,7 @@ public class QuestionDatabase
     public int getAnswer()
     {
 
+        _answer = 0;
         return _answer;
     }
 

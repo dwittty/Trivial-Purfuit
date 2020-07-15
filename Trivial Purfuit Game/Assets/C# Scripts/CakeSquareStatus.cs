@@ -31,6 +31,7 @@ public class CakeSquareStatus
 
     public bool getStatus(int player, int color)                    //getter
     {
+        Debug.Log($"Cake square updated the status.");
         return _isFilled[player,color];
     }
 
