@@ -29,6 +29,7 @@ public class TurnTimer : MonoBehaviour
             }
             else
             {
+                timeText.text = string.Format("{0:00}:{1:00}", 0, 0);
                 Debug.Log("Out of time!!");
                 timeRemaining = 0;
                 timerRunning = false;
@@ -41,8 +42,8 @@ public class TurnTimer : MonoBehaviour
     {
         timeToDisplay += 1; //for truncating purposing since we are counting down
 
-        float minutes = Mathf.FloorToInt(timeRemaining / 60);
-        float seconds = Mathf.FloorToInt(timeRemaining % 60);
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
