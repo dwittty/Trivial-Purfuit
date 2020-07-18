@@ -100,17 +100,17 @@ public class RuleController
     public string sendQuestion()
     {
         Debug.Log($"RuleController asks QuestionDB to update question and answer.");
-        return _qdb.getQuestion();
+        return _qdb.GetQuestion(Category.RED).Prompt;
     }
 
     public string[] sendMultipleChoice()
     {
-        return _qdb.getMultipleChoice();
+        return new string[0];//_qdb.getMultipleChoice();
     }
 
     public bool checkAnswer(int input)
     {
-        if (input==_qdb.getAnswer())
+        if (input == 0/*_qdb.getAnswer()*/)
         {
             _css.setStatus(_userNumber, _locationColor, true);
             return true;
@@ -145,8 +145,8 @@ public class RuleController
 
     public void winnerQuestion(int inputCategory)
     {
-        _qdb.updateCategory(inputCategory);
-        _qdb.updateQuestionSet();
+        //_qdb.updateCategory(inputCategory);
+        _qdb.UpdateQuestionSet();
         sendQuestion(); //this will be assigned to the object in front-end instance
         sendMultipleChoice(); //this will be assigned to the object in front-end instance
 

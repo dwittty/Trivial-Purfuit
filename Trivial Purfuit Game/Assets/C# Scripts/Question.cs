@@ -2,29 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Question : MonoBehaviour
-{        
-    public string QuestionString { get; set; }
-    public string CorrectAnswer { get; set; }
-    public List<string> AnswerChoices { get; set; }
-    
+public enum Category
+{
+    RED, GREEN, BLUE, WHITE
+}
 
-    public Question(string question, string answer, List<string> choices)
-    {
-        QuestionString = question;
-        CorrectAnswer = answer;
-        AnswerChoices = choices;
-    }
+public readonly struct Question
+{
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Category Category { get; }
+    public string Prompt { get; }
+    public string Correct { get; }
+    public string Wrong1 { get; }
+    public string Wrong2 { get; }
+    public string Wrong3 { get; }
 
-    // Update is called once per frame
-    void Update()
+    public Question(Category category, string prompt, string correct, string wrong1, string wrong2, string wrong3)
     {
-        
+        Category = category;
+        Prompt = prompt;
+        Correct = correct;
+        Wrong1 = wrong1;
+        Wrong2 = wrong2;
+        Wrong3 = wrong3;
     }
 }
