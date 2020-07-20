@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Blue
+  - Cake
+  - Green
+  - Red
+  - White
+  - Start
   layers:
   - Default
   - TransparentFX
