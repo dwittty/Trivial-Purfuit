@@ -3847,8 +3847,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextTiles:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 504648394}
+  - {fileID: 1458900608}
 --- !u!1 &1225965810
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,7 +5832,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4baa49fbbd1fed441bc9e4f882bd3a36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextTiles: []
+  NextTiles:
+  - {fileID: 828669378}
+  - {fileID: 65636125}
 --- !u!1 &2004511365
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,8 +36,10 @@ public class PlayerToken : MonoBehaviour
         PreviousTile = CurrentTile;
         CurrentTile = tileThatIsNotPrevious;
 
-
-        this.transform.position = tileThatIsNotPrevious.transform.position;      
+        var newPosition = tileThatIsNotPrevious.transform.position;
+        newPosition.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
+        this.transform.position = newPosition;
+        
     }
 
     public void MoveTokenWithChoice(Tile tileToMoveTo)
