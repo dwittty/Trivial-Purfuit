@@ -10,6 +10,8 @@ public class PlayerSelectionBehavior : MonoBehaviour
     private Toggle toggle2;
     private Toggle toggle3;
     private Toggle toggle4;
+    private int numPlayer;
+    private List<Player> turnOrder;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +32,12 @@ public class PlayerSelectionBehavior : MonoBehaviour
     {
         bool status = toggle.isOn;
         print(toggle.name + "status: " + status);
+        
     }
-    
+
+   
+
+
     //Allows only one button in the player selection group to be on at a time
     public void ToggleRadio(Toggle clickedToggle)
     {
@@ -50,6 +56,91 @@ public class PlayerSelectionBehavior : MonoBehaviour
             }
 
         }
+
+        decideTurnOrder();
+        
+
+
+    }
+    private void decideTurnOrder()  //logic to decide turn order by rolling a dice. Currently, automatically run the dice and set the turn order.
+    {
+        turnOrder = new List<Player>();
+        
+        RuleController rc = new RuleController();
+        int temp;
+        if (toggle2.isOn == true)
+        {
+            numPlayer = 2;
+            turnOrder.Clear();
+            Player player1 = new Player("player1", 1, rc.rollDice());
+
+            Player player2 = new Player("player2", 2, rc.rollDice());
+
+            turnOrder.Add(player1);
+            turnOrder.Add(player2);
+        }
+        else if (toggle3.isOn == true)
+        {
+            numPlayer = 3;
+            turnOrder.Clear();
+
+            Player player1 = new Player("player1", 1, rc.rollDice());
+
+            Player player2 = new Player("player2", 2, rc.rollDice());
+
+            Player player3 = new Player("player3", 3, rc.rollDice());
+
+            turnOrder.Add(player1);
+            turnOrder.Add(player2);
+            turnOrder.Add(player3);
+        }
+        else
+        {
+            numPlayer = 4;
+            turnOrder.Clear();
+            Player player1 = new Player("player1", 1, rc.rollDice());
+
+            Player player2 = new Player("player2", 2, rc.rollDice());
+
+            Player player3 = new Player("player3", 3, rc.rollDice());
+
+            Player player4 = new Player("player4", 4, rc.rollDice());
+
+            turnOrder.Add(player1);
+            turnOrder.Add(player2);
+            turnOrder.Add(player3);
+            turnOrder.Add(player4);
+        }
+
+        turnOrder.Sort(delegate (Player x, Player y)        //sorting rule. if y has bigger dice number, y should go first. if x and y has same dice number, player which has smaller ID goes first. (if Player 1 and player 2 has same dice number, player 1 go first).
+        {
+            if (x.getDiceNum() < y.getDiceNum())
+            {
+                return 1;
+
+            }
+            else if (x.getDiceNum()==y.getDiceNum())
+            {
+                if (x.getPlayerID()>y.getPlayerID())
+                {
+                    return 1;
+                }
+                else
+                {
+                    return -1;
+                }
+
+            }
+
+            else
+            {
+                
+                return -1;
+            }
+
+        });
+
+        rc.setTurnOrder(turnOrder);
     }
 
 }

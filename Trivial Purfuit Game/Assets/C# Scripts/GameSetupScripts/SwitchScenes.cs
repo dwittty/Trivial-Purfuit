@@ -19,6 +19,8 @@ public class SwitchScenes : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("SampleScene");        
+        SceneManager.LoadScene("SampleScene");
+        
+        
     }
 }
