@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class RuleController
     private int _locationColor;
     private int _selectedAnswer;
 
+    private List<Player> _turnOrder;
+
     private RandomNumberGeneratorDice _rng;
     private QuestionDatabase _qdb;
     private CakeSquareStatus _css;
@@ -28,6 +31,7 @@ public class RuleController
         _qdb = new QuestionDatabase();
         _css = new CakeSquareStatus(_numUsers);
         _winnerExist = false;
+        
     }
 
 
@@ -141,6 +145,26 @@ public class RuleController
         Debug.Log($"RuleController asks cake square to update status.");
         return _css.getStatus(_userNumber, _locationColor);
     }
+
+
+    public List<Player> getTurnOrder()
+    {
+        return _turnOrder;
+    }
+
+
+    public void setTurnOrder(List<Player> turnOrder)
+    {
+        _turnOrder = turnOrder.ToList();
+        
+        _numUsers = _turnOrder.Count;
+        for (int i = 0; i < _numUsers; i++)
+        {
+            Debug.Log($"{_turnOrder.ElementAt(i).getPlayerName()} got dice number {_turnOrder.ElementAt(i).getDiceNum()}");
+
+        }
+    }
+
 
 
     public void winnerQuestion(int inputCategory)

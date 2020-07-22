@@ -24,7 +24,7 @@ public class RandomNumberGeneratorDice
 
     public int rollDice()
     {
-        System.Random random = new System.Random();
+        System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
         _rand =random.Next(_diceMin,_diceMax);
         return _rand;
     }
