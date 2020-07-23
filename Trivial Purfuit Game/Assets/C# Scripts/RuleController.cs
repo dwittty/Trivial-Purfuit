@@ -21,8 +21,9 @@ public class RuleController
     private RandomNumberGeneratorDice _rng;
     private QuestionDatabase _qdb;
     private CakeSquareStatus _css;
-
     private bool _winnerExist;
+    
+    private static int _currentPlayersTurn;
 
     public RuleController()
     {
@@ -31,9 +32,17 @@ public class RuleController
         _qdb = new QuestionDatabase();
         _css = new CakeSquareStatus(_numUsers);
         _winnerExist = false;
+        _currentPlayersTurn = 1;
         
     }
 
+    public enum PlayerList
+    {
+        Player1 = 1,
+        Player2 = 2, 
+        Player3 = 3,
+        Player4 = 4
+    }
 
     enum LocationColor
     {
@@ -190,4 +199,10 @@ public class RuleController
         }
         return _winnerExist;
     }
+
+    public static int CurrentTurn()
+    {
+        return _currentPlayersTurn;
+    }
+
 }

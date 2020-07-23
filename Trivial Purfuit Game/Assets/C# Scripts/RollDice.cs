@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class RollDice: MonoBehaviour
 {
@@ -26,13 +27,9 @@ public class RollDice: MonoBehaviour
         Debug.Log($"You rolled a {randomInt}.");
         textField.text = "The dice result is: " + randomInt.ToString();
         Debug.Log($"User moved by {randomInt}. Location updated.");
-
-        for(int i = 0; i < randomInt; i++)
-        {
-            //TODO: Get the right player token not just the first random one FindObjectOfType comes across
-            var playerToken = FindObjectOfType<PlayerToken>();
-            playerToken.MoveToken();           
-        }
+        
+        var playerToken = PlayerToken.FindActivePlayerToken();
+        playerToken.MoveToken(randomInt);                
 
     }
 

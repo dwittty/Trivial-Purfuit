@@ -6,7 +6,7 @@ public class Player
 {
     private int _playerID;          //Player3 has playerID=3
     private string _playerName;     //default PlayerX (X is the player ID)
-    private int _diceNum;           //this decides the turn order after rolling the initial dice
+    private int _diceNum;           //this decides the turn order after rolling the initial dice    
 
     public Player(string playerName,int playerID,int diceNum )
     {
