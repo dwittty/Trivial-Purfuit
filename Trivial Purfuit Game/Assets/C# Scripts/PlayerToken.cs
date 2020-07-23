@@ -76,7 +76,7 @@ public class PlayerToken : MonoBehaviour
 
     void SetNewTargetPosition(Vector3 pos)
     {        
-        pos.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
+        pos.z = 1; //make z index -1 so the player token is always closer to the camera than the board object.
         pos.x += xOffset;  //adjust position by player offset
         pos.y += yOffset;  //adjust position by player offset
 
