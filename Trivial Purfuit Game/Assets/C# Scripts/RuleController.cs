@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
 
-public class RuleController 
+public class RuleController : MonoBehaviour
 {
     //private variables
     private int _numUsers=2;
