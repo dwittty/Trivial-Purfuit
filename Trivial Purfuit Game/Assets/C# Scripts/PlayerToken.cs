@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System;
+using UnityEngine.UI;
 
 public class PlayerToken : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    public bool hasRedCake;
+    public bool hasBlueCake;
+    public bool hasGreenCake;
+    public bool hasWhiteCake;
+
+    public Sprite[] playerTokenImages;
 
     public Tile PreviousTile;
     public Tile CurrentTile;   
@@ -50,6 +58,7 @@ public class PlayerToken : MonoBehaviour
 
     public void MoveToken(int spacesToMove)
     {
+        UpdatePlayerTokenSprite();
         moveQueue = new Tile[spacesToMove];
 
         for (int i = 0; i < spacesToMove; i++)
@@ -76,7 +85,7 @@ public class PlayerToken : MonoBehaviour
 
     void SetNewTargetPosition(Vector3 pos)
     {        
-        pos.z = 1; //make z index -1 so the player token is always closer to the camera than the board object.
+        pos.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
         pos.x += xOffset;  //adjust position by player offset
         pos.y += yOffset;  //adjust position by player offset
 
@@ -90,6 +99,13 @@ public class PlayerToken : MonoBehaviour
         var playerTokens = FindObjectsOfType<PlayerToken>().ToList();
         var activePlayer = playerTokens.FirstOrDefault(x => x.name.Contains(currentTurn.ToString()));
         return activePlayer;
+    }
+
+    void UpdatePlayerTokenSprite()
+    {
+        var foo = this.transform.GetChild(0);
+        var bar = foo.GetComponent<SpriteRenderer>();
+        var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
     }
 
    
