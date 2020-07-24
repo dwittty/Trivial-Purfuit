@@ -205,4 +205,9 @@ public class RuleController : MonoBehaviour
         return _currentPlayersTurn;
     }
 
+    public static void SetCurrentTurn(int turn)
+    {
+        _currentPlayersTurn = turn;
+    }
+
 }

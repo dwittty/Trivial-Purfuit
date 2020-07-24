@@ -29,17 +29,21 @@ public class PlayerToken : MonoBehaviour
     Tile[] moveQueue;
     int moveQueueIndex;
 
+    int spacesRemainingInMove;
+    public GameObject directionChoiceButtonPrefab;
+
     public PlayerToken()
     {
         PreviousTile = null;
         CurrentTile = null;
+        spacesRemainingInMove = 0;
     }
 
 
     void Start()
     {
         CurrentTile = FindObjectsOfType<Tile>().FirstOrDefault(x => x.name == "4_4_StartTile");
-        targetPosition = this.transform.position;
+        targetPosition = this.transform.position;      
     }
 
     // Update is called once per frame
@@ -54,6 +58,42 @@ public class PlayerToken : MonoBehaviour
             }
         }
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
+    }
+
+
+    //puts buttons in the available move directions for the player to choose from
+    public void ChooseDirectionToMove(int spacesToMove)
+    {
+        spacesRemainingInMove = spacesToMove; //set this value to be remembered later
+
+        //take previous tile option away so player cannot go backwards
+        var nameOfLastTile = PreviousTile?.name ?? "";
+
+        //list of tiles that are not 'previous tile.' If this is the first move after rolling dice, this will be all adjacent tiles.
+        var nextTiles = CurrentTile.NextTiles.Where(x => x.name != nameOfLastTile).ToList();
+
+        var canvas = FindObjectOfType<Canvas>();
+
+     
+           
+            
+
+
+        foreach (Tile tile in nextTiles)
+        {
+            Vector3 tilePosition = tile.transform.position;
+            tilePosition.z = -2; //make sure button appears above the board and any other player tokens
+
+            var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
+            screenPosition.z = -2;
+            //if (GUI.Button(new Rect(screenPosition.x, screenPosition.y + 10, 100, 40), "Go to this city"))
+            //{
+            //    selected = false;
+            //}
+
+            GameObject newButton = Instantiate(directionChoiceButtonPrefab, screenPosition, Quaternion.identity);
+            newButton.transform.SetParent(canvas.transform, true);
+        }
     }
 
     public void MoveToken(int spacesToMove)

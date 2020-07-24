@@ -29,7 +29,8 @@ public class RollDice: MonoBehaviour
         Debug.Log($"User moved by {randomInt}. Location updated.");
         
         var playerToken = PlayerToken.FindActivePlayerToken();
-        playerToken.MoveToken(randomInt);                
+        //playerToken.MoveToken(randomInt);                
+        playerToken.ChooseDirectionToMove(randomInt);
 
     }
 
