@@ -34,14 +34,14 @@ public class PlayerToken : MonoBehaviour
 
     public PlayerToken()
     {
-        PreviousTile = null;
-        CurrentTile = null;
+        PreviousTile = null;        
         spacesRemainingInMove = 0;
     }
 
 
     void Start()
     {
+        PreviousTile = null;
         CurrentTile = FindObjectsOfType<Tile>().FirstOrDefault(x => x.name == "4_4_StartTile");
         targetPosition = this.transform.position;      
     }
@@ -60,10 +60,104 @@ public class PlayerToken : MonoBehaviour
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
+    public void UpdateSprite(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake)
+    {
+        if (!hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/NoCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake) 
+        {
+            Sprite sprite = Resources.Load("Sprites/BlueCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedBlueCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/GreenCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedGreenCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/BlueGreenCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedBlueGreenCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/WhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/BlueWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedBlueWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/GreenWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedGreenWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/BlueGreenWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedBlueWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/RedBlueGreenWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else
+        {
+            Sprite sprite = Resources.Load("Sprites/Uhoh", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+    }
+
 
     //puts buttons in the available move directions for the player to choose from
     public void ChooseDirectionToMove()
-    {       
+    {     
         //take previous tile option away so player cannot go backwards
         var nameOfLastTile = PreviousTile?.name ?? "";
 
@@ -90,8 +184,7 @@ public class PlayerToken : MonoBehaviour
     }
 
     public void MoveToken(Tile tileSelectedByUser)
-    {
-        UpdatePlayerTokenSprite();
+    {        
         moveQueue = new Tile[spacesRemainingInMove];
 
         int spacesToMoveLocal = spacesRemainingInMove;
@@ -134,6 +227,7 @@ public class PlayerToken : MonoBehaviour
         //reset variables for next move
         moveQueueIndex = 0;
         PreviousTile = null;
+        UpdateSprite(true, true, true, true);
     }
 
     void SetNewTargetPosition(Vector3 pos)
@@ -154,11 +248,13 @@ public class PlayerToken : MonoBehaviour
         return activePlayer;
     }
 
-    void UpdatePlayerTokenSprite()
+    private void UpdatePlayerTokenSprite(Sprite newSprite)
     {
-        var foo = this.transform.GetChild(0);
-        var bar = foo.GetComponent<SpriteRenderer>();
-        var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
+        //var foo = this.transform.GetChild(0);
+        //var bar = foo.GetComponent<SpriteRenderer>();
+        //var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
+        var spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = newSprite;
     }
 
 
