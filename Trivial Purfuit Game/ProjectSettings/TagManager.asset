@@ -10,6 +10,8 @@ TagManager:
   - Red
   - White
   - Start
+  - DirectionChoice
+  - Undefined
   layers:
   - Default
   - TransparentFX

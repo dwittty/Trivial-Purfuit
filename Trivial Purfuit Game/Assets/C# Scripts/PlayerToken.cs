@@ -62,10 +62,8 @@ public class PlayerToken : MonoBehaviour
 
 
     //puts buttons in the available move directions for the player to choose from
-    public void ChooseDirectionToMove(int spacesToMove)
-    {
-        spacesRemainingInMove = spacesToMove; //set this value to be remembered later
-
+    public void ChooseDirectionToMove()
+    {       
         //take previous tile option away so player cannot go backwards
         var nameOfLastTile = PreviousTile?.name ?? "";
 
@@ -73,54 +71,69 @@ public class PlayerToken : MonoBehaviour
         var nextTiles = CurrentTile.NextTiles.Where(x => x.name != nameOfLastTile).ToList();
 
         var canvas = FindObjectOfType<Canvas>();
-
-     
-           
-            
-
-
+          
         foreach (Tile tile in nextTiles)
         {
             Vector3 tilePosition = tile.transform.position;
             tilePosition.z = -2; //make sure button appears above the board and any other player tokens
 
+            //var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
+            //screenPosition.z = -2;
+            //GameObject newButton = Instantiate(directionChoiceButtonPrefab, screenPosition, Quaternion.identity);
+            //newButton.transform.SetParent(canvas.transform, true);spacesRemainingInMove--;
+
             var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
             screenPosition.z = -2;
-            //if (GUI.Button(new Rect(screenPosition.x, screenPosition.y + 10, 100, 40), "Go to this city"))
-            //{
-            //    selected = false;
-            //}
-
             GameObject newButton = Instantiate(directionChoiceButtonPrefab, screenPosition, Quaternion.identity);
-            newButton.transform.SetParent(canvas.transform, true);
+            newButton.transform.SetParent(tile.transform, true); //needs a parent that is part of a canvas to show up on the screen. With tile as parent, can use parent info to determine which tile they selected
         }
     }
 
-    public void MoveToken(int spacesToMove)
+    public void MoveToken(Tile tileSelectedByUser)
     {
         UpdatePlayerTokenSprite();
-        moveQueue = new Tile[spacesToMove];
+        moveQueue = new Tile[spacesRemainingInMove];
 
-        for (int i = 0; i < spacesToMove; i++)
+        int spacesToMoveLocal = spacesRemainingInMove;
+        //while (spacesRemainingInMove >= 0)
+        //{
+        for (int i = 0; i < spacesToMoveLocal; i++)
         {
-            //take previous tile option away so player cannot go backwards
-            var nameOfLastTile = PreviousTile?.name ?? "";
+            //first pass through loop always choose tileSelectedByUser as the next tile
+            if (i == 0)
+            {
+                PreviousTile = CurrentTile;
+                CurrentTile = tileSelectedByUser;
+                moveQueue[i] = tileSelectedByUser;
+                spacesRemainingInMove--; //decrement spaces left to move
+            }
+            else
+            {
+                //take previous tile option away so player cannot go backwards
+                var nameOfLastTile = PreviousTile?.name ?? "";                
+                var nextTiles = CurrentTile.NextTiles.Where(x => x.name != nameOfLastTile).ToList();
 
-            //just chooses any... in the future may need to pass one in if the player selects a choice (i.e. at a branch)
-            var nextTile = CurrentTile.NextTiles.FirstOrDefault(x => x.name != nameOfLastTile);
-            PreviousTile = CurrentTile;
-            CurrentTile = nextTile;
-
+                //no choice to be made, just move the token to the next space
+                if (nextTiles.Count == 1) {
+                    PreviousTile = CurrentTile;
+                    CurrentTile = nextTiles[0];
+                    moveQueue[i] = nextTiles[0];
+                    spacesRemainingInMove--;
+                }
+                else
+                {
+                    ChooseDirectionToMove();
+                    break;
+                }                                              
+            }       
             //var newPosition = nextTile.transform.position;
             
             ////this.transform.position = newPosition;
             //SetNewTargetPosition(newPosition);
-
-            moveQueue[i] = nextTile;
         }
-
+        //reset variables for next move
         moveQueueIndex = 0;
-        
+        PreviousTile = null;
     }
 
     void SetNewTargetPosition(Vector3 pos)
@@ -148,5 +161,10 @@ public class PlayerToken : MonoBehaviour
         var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
     }
 
+
+    public void SetSpacesRemainingInMove(int spacesToMove)
+    {
+        spacesRemainingInMove = spacesToMove;
+    }
    
 }

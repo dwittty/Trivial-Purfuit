@@ -23,14 +23,15 @@ public class RollDice: MonoBehaviour
     {
         //int randomInt = Random.Range(1, 7); //Return number 1 to 6 (the top of the range is exclusive, not inclusive)        
         RuleController rc = new RuleController();
-        int randomInt = rc.rollDice();
-        Debug.Log($"You rolled a {randomInt}.");
-        textField.text = "The dice result is: " + randomInt.ToString();
-        Debug.Log($"User moved by {randomInt}. Location updated.");
-        
+        int diceResult = rc.rollDice();
+        Debug.Log($"You rolled a {diceResult}.");
+        textField.text = "The dice result is: " + diceResult.ToString();
+        Debug.Log($"User moved by {diceResult}. Location updated.");       
+
+
         var playerToken = PlayerToken.FindActivePlayerToken();
-        //playerToken.MoveToken(randomInt);                
-        playerToken.ChooseDirectionToMove(randomInt);
+        playerToken.SetSpacesRemainingInMove(diceResult);
+        playerToken.ChooseDirectionToMove();
 
     }
 
