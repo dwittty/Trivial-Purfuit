@@ -8,7 +8,7 @@ using UnityEngine;
 public class RuleController : MonoBehaviour
 {
     //private variables
-    private int _numUsers=2;
+    
     private int _userNumber;
     private string _userName;
     private int _userLocationX;
@@ -23,7 +23,8 @@ public class RuleController : MonoBehaviour
     private CakeSquareStatus _css;
     private bool _winnerExist;
     
-    private static int _currentPlayersTurn;
+    private static int _currentPlayersTurn=1;
+    private static int _numUsers = 2;
 
     public RuleController()
     {
@@ -31,9 +32,7 @@ public class RuleController : MonoBehaviour
         _rng = new RandomNumberGeneratorDice();     
         _qdb = new QuestionDatabase();
         _css = new CakeSquareStatus(_numUsers);
-        _winnerExist = false;
-        _currentPlayersTurn = 1;
-        
+        _winnerExist = false;               
     }
 
     public enum PlayerList
@@ -164,8 +163,7 @@ public class RuleController : MonoBehaviour
 
     public void setTurnOrder(List<Player> turnOrder)
     {
-        _turnOrder = turnOrder.ToList();
-        
+        _turnOrder = turnOrder.ToList();        
         _numUsers = _turnOrder.Count;
         for (int i = 0; i < _numUsers; i++)
         {
@@ -174,6 +172,20 @@ public class RuleController : MonoBehaviour
         }
     }
 
+    public static int CurrentTurn()
+    {
+        return _currentPlayersTurn;
+    }
+
+    public static void SetCurrentTurn(int turn)
+    {
+        _currentPlayersTurn = turn;
+    }
+
+    public static void EndTurn()
+    {
+        _currentPlayersTurn = ((_currentPlayersTurn + 1) % _numUsers) + 1; //increment turn
+    }
 
 
     public void winnerQuestion(int inputCategory)
@@ -200,14 +212,6 @@ public class RuleController : MonoBehaviour
         return _winnerExist;
     }
 
-    public static int CurrentTurn()
-    {
-        return _currentPlayersTurn;
-    }
-
-    public static void SetCurrentTurn(int turn)
-    {
-        _currentPlayersTurn = turn;
-    }
+    
 
 }
