@@ -155,10 +155,7 @@ public class PlayerToken : MonoBehaviour
     }
 
     private void UpdatePlayerTokenSprite(Sprite newSprite)
-    {
-        //var foo = this.transform.GetChild(0);
-        //var bar = foo.GetComponent<SpriteRenderer>();
-        //var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
+    {        
         var spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = newSprite;
     }
@@ -176,12 +173,7 @@ public class PlayerToken : MonoBehaviour
         foreach (Tile tile in nextTiles)
         {
             Vector3 tilePosition = tile.transform.position;
-            tilePosition.z = -2; //make sure button appears above the board and any other player tokens
-
-            //var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
-            //screenPosition.z = -2;
-            //GameObject newButton = Instantiate(directionChoiceButtonPrefab, screenPosition, Quaternion.identity);
-            //newButton.transform.SetParent(canvas.transform, true);spacesRemainingInMove--;
+            tilePosition.z = -2; //make sure button appears above the board and any other player tokens           
 
             var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
             screenPosition.z = -2;
@@ -227,11 +219,7 @@ public class PlayerToken : MonoBehaviour
                     ChooseDirectionToMove();
                     break;
                 }                                              
-            }       
-            //var newPosition = nextTile.transform.position;
-            
-            ////this.transform.position = newPosition;
-            //SetNewTargetPosition(newPosition);
+            }  
         }
         //reset variables for next move
         moveQueueIndex = 0;

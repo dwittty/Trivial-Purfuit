@@ -478,8 +478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -317, y: 118.7}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -317.44, y: 136.6}
+  m_SizeDelta: {x: 341.47778, y: 85.4324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &41148976
 MonoBehaviour:
@@ -4323,7 +4323,7 @@ GameObject:
   - component: {fileID: 1087355103}
   - component: {fileID: 1087355106}
   m_Layer: 5
-  m_Name: ButtonD
+  m_Name: AnswerD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5617,7 +5617,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -359, y: 188}
+  m_AnchoredPosition: {x: -407, y: 236}
   m_SizeDelta: {x: 213.46161, y: 101.751114}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1364478227
