@@ -3098,7 +3098,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 703105529}
-        m_MethodName: SetUpdate
+        m_MethodName: AnswerSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3154,7 +3154,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 703105524}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afecb93f44ca7cb4b90723dcf7279bee, type: 3}
+  m_Script: {fileID: 11500000, guid: 86cc338d217d5d14ebf481c7ae1383e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &707778131
@@ -4393,7 +4393,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1087355106}
-        m_MethodName: SetUpdate
+        m_MethodName: AnswerSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4449,7 +4449,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1087355101}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7f3a64e922717a4a9d69e1d3f8a4c49, type: 3}
+  m_Script: {fileID: 11500000, guid: 86cc338d217d5d14ebf481c7ae1383e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1100434797
@@ -5342,7 +5342,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1338576269}
-        m_MethodName: SetUpdate
+        m_MethodName: AnswerSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5398,7 +5398,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1338576264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e731df1c3577e4ab3f660c959c82ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 86cc338d217d5d14ebf481c7ae1383e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1346732226
@@ -7826,7 +7826,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1771310619}
-        m_MethodName: SetUpdate
+        m_MethodName: AnswerSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7882,7 +7882,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1771310614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a45af08c0d20444aa5ddb2c924f5a7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 86cc338d217d5d14ebf481c7ae1383e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1772051542

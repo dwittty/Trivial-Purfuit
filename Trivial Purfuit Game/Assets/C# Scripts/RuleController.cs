@@ -22,6 +22,7 @@ public class RuleController : MonoBehaviour
 
     private RandomNumberGeneratorDice _rng;
     private QuestionDatabase _qdb;
+    private Question _currentQuestion;
     private CakeSquareStatus _css;
     private bool _winnerExist;
     
@@ -126,34 +127,34 @@ public class RuleController : MonoBehaviour
     public void GetAndDisplayNewTriviaQuestion(string color)
     {
         Debug.Log($"RuleController asks QuestionDB to display trivia question and answer choices.");
-        Question question = new Question();
+        
         if (color.ToUpper() == "RED")
         {
-            question = _qdb.GetQuestion(Category.RED);
+            _currentQuestion = _qdb.GetQuestion(Category.RED);
         }
         else if (color.ToUpper() == "BLUE")
         {
-            question = _qdb.GetQuestion(Category.BLUE);
+            _currentQuestion = _qdb.GetQuestion(Category.BLUE);
         }
         else if (color.ToUpper() == "GREEN")
         {
-            question = _qdb.GetQuestion(Category.GREEN);
+            _currentQuestion = _qdb.GetQuestion(Category.GREEN);
         }
-        else if (color.ToUpper() == "WHITE")
+        else 
         {
-            question = _qdb.GetQuestion(Category.WHITE);
+            _currentQuestion = _qdb.GetQuestion(Category.WHITE);
         }
 
         var questionText = FindObjectsOfType<Text>().FirstOrDefault(x => x.name == "Question");
-        questionText.text = question.Prompt;
+        questionText.text = _currentQuestion.Prompt;
         var answerA = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerA");
-        answerA.GetComponentInChildren<Text>().text = question.Correct;
+        answerA.GetComponentInChildren<Text>().text = _currentQuestion.Correct;
         var answerB = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerB");
-        answerB.GetComponentInChildren<Text>().text = question.Wrong1;
+        answerB.GetComponentInChildren<Text>().text = _currentQuestion.Wrong1;
         var answerC = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerC");
-        answerC.GetComponentInChildren<Text>().text = question.Wrong2;
+        answerC.GetComponentInChildren<Text>().text = _currentQuestion.Wrong2;
         var answerD = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerD");
-        answerD.GetComponentInChildren<Text>().text = question.Wrong3;
+        answerD.GetComponentInChildren<Text>().text = _currentQuestion.Wrong3;
 
     }
 
@@ -162,13 +163,19 @@ public class RuleController : MonoBehaviour
         return new string[0];//_qdb.getMultipleChoice();
     }
 
-    public bool checkAnswer(int input)
+    public bool CheckAnswer(string selectedAnswer)
     {
-        if (input == 0/*_qdb.getAnswer()*/)
+        if(string.Equals(selectedAnswer, _currentQuestion.Correct))
         {
-            _css.setStatus(_userNumber, _locationColor, true);
+            Debug.Log($"Rule controller notifies Correct answer. Roll again.");
             return true;
+            //TODO: call something to give cake (if on a cake square), and let user know they can continue their turn
         }
+        //if (input == 0/*_qdb.getAnswer()*/)
+        //{
+        //    _css.setStatus(_userNumber, _locationColor, true);
+        //    return true;
+        //}
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
@@ -247,7 +254,7 @@ public class RuleController : MonoBehaviour
     {
         if (_css.isFull(_userNumber) && _userLocationX==0 && _userLocationY==0)
         {
-            if (checkAnswer(input))
+            if (CheckAnswer(""))
             {
                 _winnerExist = true;
             }

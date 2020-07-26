@@ -19,7 +19,7 @@ public class NotifyTurnOver : MonoBehaviour
     {
         RuleController rc = new RuleController();
 
-        rc.checkAnswer(1);
+        //rc.checkAnswer(1);
         //Debug.Log($"Rule controller notifies Wrong answer. Turn over");
 
 
