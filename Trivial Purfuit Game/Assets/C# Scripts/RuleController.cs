@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuleController : MonoBehaviour
 {
@@ -122,10 +123,38 @@ public class RuleController : MonoBehaviour
     //    Question newQuestion = _qdb.GetQuestion(Category.RED).Prompt;
     //}
 
-    public string sendQuestion()
+    public void GetAndDisplayNewTriviaQuestion(string color)
     {
-        Debug.Log($"RuleController asks QuestionDB to update question and answer.");
-        return _qdb.GetQuestion(Category.RED).Prompt;
+        Debug.Log($"RuleController asks QuestionDB to display trivia question and answer choices.");
+        Question question = new Question();
+        if (color.ToUpper() == "RED")
+        {
+            question = _qdb.GetQuestion(Category.RED);
+        }
+        else if (color.ToUpper() == "BLUE")
+        {
+            question = _qdb.GetQuestion(Category.BLUE);
+        }
+        else if (color.ToUpper() == "GREEN")
+        {
+            question = _qdb.GetQuestion(Category.GREEN);
+        }
+        else if (color.ToUpper() == "WHITE")
+        {
+            question = _qdb.GetQuestion(Category.WHITE);
+        }
+
+        var questionText = FindObjectsOfType<Text>().FirstOrDefault(x => x.name == "Question");
+        questionText.text = question.Prompt;
+        var answerA = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerA");
+        answerA.GetComponentInChildren<Text>().text = question.Correct;
+        var answerB = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerB");
+        answerB.GetComponentInChildren<Text>().text = question.Wrong1;
+        var answerC = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerC");
+        answerC.GetComponentInChildren<Text>().text = question.Wrong2;
+        var answerD = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerD");
+        answerD.GetComponentInChildren<Text>().text = question.Wrong3;
+
     }
 
     public string[] sendMultipleChoice()
@@ -204,8 +233,9 @@ public class RuleController : MonoBehaviour
     public void winnerQuestion(int inputCategory)
     {
         //_qdb.updateCategory(inputCategory);
+              
         _qdb.UpdateQuestionSet();
-        sendQuestion(); //this will be assigned to the object in front-end instance
+        //sendQuestion(); //this will be assigned to the object in front-end instance
         sendMultipleChoice(); //this will be assigned to the object in front-end instance
 
     }

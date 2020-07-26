@@ -9,7 +9,7 @@ public class SetupGameBoard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RuleController rc = FindObjectOfType<RuleController>();
+        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
         int numPlayers = rc.GetNumberOfPlayers();
         var allPlayerTokens = FindObjectsOfType<PlayerToken>();
         if (numPlayers < 4)

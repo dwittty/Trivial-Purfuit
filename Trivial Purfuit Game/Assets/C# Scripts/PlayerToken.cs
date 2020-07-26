@@ -237,7 +237,8 @@ public class PlayerToken : MonoBehaviour
         moveQueueIndex = 0;
         PreviousTile = null;
         //move is complete, ask ruleController for a question:
-        //RuleController.GetTriviaQuestion(CurrentTile);
+        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
+        rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
     }
 
     void SetNewTargetPosition(Vector3 pos)

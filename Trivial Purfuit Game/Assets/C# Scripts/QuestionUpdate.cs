@@ -20,7 +20,7 @@ public class QuestionUpdate : MonoBehaviour
 
         RuleController rc = new RuleController();
 
-        rc.sendQuestion();
+        //rc.sendQuestion();
 
 
     }
