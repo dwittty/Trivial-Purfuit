@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         }
 
         var activePlayerToken = PlayerToken.FindActivePlayerToken();
-        activePlayerToken.UpdateSprite(hasRedCake, hasBlueCake, hasGreenCake, hasWhiteCake);
+        activePlayerToken.SetSpriteBasedOnCakeStatus(hasRedCake, hasBlueCake, hasGreenCake, hasWhiteCake);
 
     }
 

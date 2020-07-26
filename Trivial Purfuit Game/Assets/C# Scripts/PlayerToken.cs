@@ -43,7 +43,7 @@ public class PlayerToken : MonoBehaviour
     {
         PreviousTile = null;
         CurrentTile = FindObjectsOfType<Tile>().FirstOrDefault(x => x.name == "4_4_StartTile");
-        targetPosition = this.transform.position;      
+        targetPosition = this.transform.position;       
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class PlayerToken : MonoBehaviour
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
-    public void UpdateSprite(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake)
+    public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake)
     {
         if (!hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
@@ -154,7 +154,14 @@ public class PlayerToken : MonoBehaviour
         }
     }
 
-
+    private void UpdatePlayerTokenSprite(Sprite newSprite)
+    {
+        //var foo = this.transform.GetChild(0);
+        //var bar = foo.GetComponent<SpriteRenderer>();
+        //var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
+        var spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = newSprite;
+    }
     //puts buttons in the available move directions for the player to choose from
     public void ChooseDirectionToMove()
     {     
@@ -250,16 +257,6 @@ public class PlayerToken : MonoBehaviour
         var activePlayer = playerTokens.FirstOrDefault(x => x.name.Contains(currentTurn.ToString()));
         return activePlayer;
     }
-
-    private void UpdatePlayerTokenSprite(Sprite newSprite)
-    {
-        //var foo = this.transform.GetChild(0);
-        //var bar = foo.GetComponent<SpriteRenderer>();
-        //var foobar = bar.sprite = playerTokenImages[UnityEngine.Random.Range(0, 16)];
-        var spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = newSprite;
-    }
-
 
     public void SetSpacesRemainingInMove(int spacesToMove)
     {
