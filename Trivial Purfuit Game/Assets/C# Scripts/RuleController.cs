@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -53,6 +54,10 @@ public class RuleController : MonoBehaviour
     }
 
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -69,12 +74,12 @@ public class RuleController : MonoBehaviour
 
     // function communicate with front-end
 
-    public void receiveUserNumber(int playerNumber)
+    public void SetNumberOfPlayers(int playerNumber)
     {
         _userNumber = playerNumber;
     }
 
-    public int sendUserNumber()
+    public int GetNumberOfPlayers()
     {
         return _userNumber;
     }
@@ -108,6 +113,14 @@ public class RuleController : MonoBehaviour
         Debug.Log($"RuleController asks RandomNumberGenerator to provide dice number.");
         return _rng.rollDice();
     }
+
+    //internal static void GetTriviaQuestion(Tile currentTile)
+    //{
+    //    var color = currentTile.color;
+    //    Category category = (Category)Enum.Parse(typeof(Category), color, true);
+
+    //    Question newQuestion = _qdb.GetQuestion(Category.RED).Prompt;
+    //}
 
     public string sendQuestion()
     {
@@ -211,7 +224,4 @@ public class RuleController : MonoBehaviour
         }
         return _winnerExist;
     }
-
-    
-
 }

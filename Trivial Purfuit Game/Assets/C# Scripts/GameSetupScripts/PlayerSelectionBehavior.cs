@@ -10,7 +10,8 @@ public class PlayerSelectionBehavior : MonoBehaviour
     private Toggle toggle2;
     private Toggle toggle3;
     private Toggle toggle4;
-    private int numPlayer;
+    private int numPlayer;    
+
     private List<Player> turnOrder;
 
     // Start is called before the first frame update
@@ -31,8 +32,24 @@ public class PlayerSelectionBehavior : MonoBehaviour
     public void PrintNewToggleValue(Toggle toggle)
     {
         bool status = toggle.isOn;
-        print(toggle.name + "status: " + status);
-        
+        print(toggle.name + "status: " + status);        
+    }
+
+    //Returns the current 
+    public int GetNumberOfPlayersForGame()
+    {
+        if (toggle2.isOn)
+        {
+            return 2;
+        }
+        else if (toggle3.isOn)
+        {
+            return 3;
+        }
+        else
+        {
+            return 4;
+        }
     }
 
    
@@ -57,16 +74,15 @@ public class PlayerSelectionBehavior : MonoBehaviour
 
         }
 
-        decideTurnOrder();
-        
-
-
+        decideTurnOrder();      
     }
+
     private void decideTurnOrder()  //logic to decide turn order by rolling a dice. Currently, automatically run the dice and set the turn order.
     {
         turnOrder = new List<Player>();
-        
-        RuleController rc = new RuleController();
+
+        RuleController rc = FindObjectOfType<RuleController>();
+        //RuleController rc = new RuleController();
         int temp;
         if (toggle2.isOn == true)
         {
@@ -117,7 +133,6 @@ public class PlayerSelectionBehavior : MonoBehaviour
             if (x.getDiceNum() < y.getDiceNum())
             {
                 return 1;
-
             }
             else if (x.getDiceNum()==y.getDiceNum())
             {
@@ -129,15 +144,11 @@ public class PlayerSelectionBehavior : MonoBehaviour
                 {
                     return -1;
                 }
-
             }
-
             else
-            {
-                
+            {                
                 return -1;
             }
-
         });
 
         rc.setTurnOrder(turnOrder);

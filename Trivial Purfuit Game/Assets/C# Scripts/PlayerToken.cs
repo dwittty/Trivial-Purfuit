@@ -183,6 +183,8 @@ public class PlayerToken : MonoBehaviour
         }
     }
 
+
+    //moves the player token until the dice value is used up or another branch is encountered, at which point the user is prompted for a choice again via ChooseDirectionToMove()
     public void MoveToken(Tile tileSelectedByUser)
     {        
         moveQueue = new Tile[spacesRemainingInMove];
@@ -227,7 +229,8 @@ public class PlayerToken : MonoBehaviour
         //reset variables for next move
         moveQueueIndex = 0;
         PreviousTile = null;
-        UpdateSprite(true, true, true, true);
+        //move is complete, ask ruleController for a question:
+        //RuleController.GetTriviaQuestion(CurrentTile);
     }
 
     void SetNewTargetPosition(Vector3 pos)
