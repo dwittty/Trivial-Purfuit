@@ -12,6 +12,7 @@ TagManager:
   - Start
   - DirectionChoice
   - Undefined
+  - CorrectnessTextDisplay
   layers:
   - Default
   - TransparentFX

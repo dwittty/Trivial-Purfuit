@@ -127,35 +127,9 @@ public class RuleController : MonoBehaviour
     public void GetAndDisplayNewTriviaQuestion(string color)
     {
         Debug.Log($"RuleController asks QuestionDB to display trivia question and answer choices.");
-        
-        if (color.ToUpper() == "RED")
-        {
-            _currentQuestion = _qdb.GetQuestion(Category.RED);
-        }
-        else if (color.ToUpper() == "BLUE")
-        {
-            _currentQuestion = _qdb.GetQuestion(Category.BLUE);
-        }
-        else if (color.ToUpper() == "GREEN")
-        {
-            _currentQuestion = _qdb.GetQuestion(Category.GREEN);
-        }
-        else 
-        {
-            _currentQuestion = _qdb.GetQuestion(Category.WHITE);
-        }
-
-        var questionText = FindObjectsOfType<Text>().FirstOrDefault(x => x.name == "Question");
-        questionText.text = _currentQuestion.Prompt;
-        var answerA = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerA");
-        answerA.GetComponentInChildren<Text>().text = _currentQuestion.Correct;
-        var answerB = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerB");
-        answerB.GetComponentInChildren<Text>().text = _currentQuestion.Wrong1;
-        var answerC = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerC");
-        answerC.GetComponentInChildren<Text>().text = _currentQuestion.Wrong2;
-        var answerD = FindObjectsOfType<Button>().FirstOrDefault(x => x.name == "AnswerD");
-        answerD.GetComponentInChildren<Text>().text = _currentQuestion.Wrong3;
-
+        var questionDisplay = new QuestionDisplay();
+        _currentQuestion = questionDisplay.GetNewQuestion(color, _qdb);
+        questionDisplay.DisplayQuestion(_currentQuestion);
     }
 
     public string[] sendMultipleChoice()
@@ -168,17 +142,16 @@ public class RuleController : MonoBehaviour
         if(string.Equals(selectedAnswer, _currentQuestion.Correct))
         {
             Debug.Log($"Rule controller notifies Correct answer. Roll again.");
+            var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();            
+            StartCoroutine(correctnessDisplay.ShowMessage(true, 5));            
             return true;
             //TODO: call something to give cake (if on a cake square), and let user know they can continue their turn
-        }
-        //if (input == 0/*_qdb.getAnswer()*/)
-        //{
-        //    _css.setStatus(_userNumber, _locationColor, true);
-        //    return true;
-        //}
+        }        
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
+            var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
+            StartCoroutine(correctnessDisplay.ShowMessage(false, 5));            
             return false;
         }
 
