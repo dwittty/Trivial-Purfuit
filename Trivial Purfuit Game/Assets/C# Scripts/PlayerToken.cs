@@ -26,6 +26,8 @@ public class PlayerToken : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     float smoothTime = 0.25f; //take 0.25 seconds to complete move.
     float smoothDistance = 0.01f;
+    bool newQuestionNeeded;
+
     Tile[] moveQueue;
     int moveQueueIndex;
 
@@ -36,6 +38,7 @@ public class PlayerToken : MonoBehaviour
     {
         PreviousTile = null;        
         spacesRemainingInMove = 0;
+        newQuestionNeeded = false;
     }
 
 
@@ -53,10 +56,24 @@ public class PlayerToken : MonoBehaviour
         {
             if (moveQueue != null && moveQueueIndex < moveQueue.Length)
             {
-                SetNewTargetPosition(moveQueue[moveQueueIndex].transform.position);
-                moveQueueIndex++;
+                if (moveQueue[moveQueueIndex] != null) //null happens when waiting for user input at an intersection, there's more spaces to move but we don't know what they are yet.
+                {
+                    SetNewTargetPosition(moveQueue[moveQueueIndex].transform.position);
+                    moveQueueIndex++;
+                }
             }
-        }
+            else
+            {
+                //no spaces remaining in the move, token has moved to the designated location, and a new question has not yet been delivered to the user
+                if (spacesRemainingInMove == 0 && newQuestionNeeded)
+                {
+                    newQuestionNeeded = false;
+                    //move is complete, ask ruleController for a question:
+                    RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
+                    rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
+                }
+            }
+        }        
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
@@ -185,9 +202,9 @@ public class PlayerToken : MonoBehaviour
 
     //moves the player token until the dice value is used up or another branch is encountered, at which point the user is prompted for a choice again via ChooseDirectionToMove()
     public void MoveToken(Tile tileSelectedByUser)
-    {        
+    {
+        newQuestionNeeded = true;
         moveQueue = new Tile[spacesRemainingInMove];
-
         int spacesToMoveLocal = spacesRemainingInMove;
         //while (spacesRemainingInMove >= 0)
         //{
@@ -224,9 +241,6 @@ public class PlayerToken : MonoBehaviour
         //reset variables for next move
         moveQueueIndex = 0;
         PreviousTile = null;
-        //move is complete, ask ruleController for a question:
-        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
-        rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
     }
 
     void SetNewTargetPosition(Vector3 pos)
