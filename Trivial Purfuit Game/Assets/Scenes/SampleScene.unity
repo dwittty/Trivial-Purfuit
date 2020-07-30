@@ -288,7 +288,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -230, y: -172}
+  m_AnchoredPosition: {x: -235, y: -149}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17135164
@@ -740,7 +740,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -399, y: -172}
+  m_AnchoredPosition: {x: -404, y: -149}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &104173775
@@ -3142,7 +3142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223.06, y: -11.000008}
+  m_AnchoredPosition: {x: -228.06, y: 11.999992}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703105526
@@ -3839,7 +3839,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -314, y: -122.5}
+  m_AnchoredPosition: {x: -319, y: -99.5}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &992131434
@@ -4437,7 +4437,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -223.26, y: -59.100006}
+  m_AnchoredPosition: {x: -228.26, y: -36.100006}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1087355103
@@ -4829,6 +4829,7 @@ GameObject:
   - component: {fileID: 1167003409}
   - component: {fileID: 1167003408}
   - component: {fileID: 1167003407}
+  - component: {fileID: 1167003410}
   m_Layer: 0
   m_Name: Player3
   m_TagString: Untagged
@@ -4848,11 +4849,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a010b9eaf27014c8a0c8ffb176e961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasRedCake: 0
-  hasBlueCake: 0
-  hasGreenCake: 0
-  hasWhiteCake: 0
-  playerTokenImages: []
   PreviousTile: {fileID: 0}
   CurrentTile: {fileID: 0}
   xOffset: -1.25
@@ -4924,6 +4920,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167003410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167003406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRedCake: 0
+  hasBlueCake: 0
+  hasGreenCake: 0
+  hasWhiteCake: 0
 --- !u!1 &1173304099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5387,7 +5399,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -393.56, y: -10.600006}
+  m_AnchoredPosition: {x: -398.56, y: 12.399994}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338576266
@@ -5575,6 +5587,7 @@ MonoBehaviour:
   NextTiles:
   - {fileID: 983625373}
   - {fileID: 1011876381}
+  - {fileID: 156533826}
   color: 
   isCake: 0
   isStart: 0
@@ -5779,6 +5792,7 @@ GameObject:
   - component: {fileID: 1384126564}
   - component: {fileID: 1384126563}
   - component: {fileID: 1384126562}
+  - component: {fileID: 1384126565}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Untagged
@@ -5798,27 +5812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a010b9eaf27014c8a0c8ffb176e961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasRedCake: 0
-  hasBlueCake: 0
-  hasGreenCake: 0
-  hasWhiteCake: 0
-  playerTokenImages:
-  - {fileID: 21300000, guid: 773b0a9167ca2b744aec97146b770e4e, type: 3}
-  - {fileID: 21300000, guid: eb5812b769aecea4595467281f1369da, type: 3}
-  - {fileID: 21300000, guid: 703ae5c3e0bba8f4f84ab56b387adc39, type: 3}
-  - {fileID: 21300000, guid: c835a39c7ca325241b08e6b867b82a52, type: 3}
-  - {fileID: 21300000, guid: fc5bc1619225af64fad2094cb1a99fff, type: 3}
-  - {fileID: 21300000, guid: 620a3e712e17cf04996cfb4cd7881335, type: 3}
-  - {fileID: 21300000, guid: d262aa65be675d64690b2e516d2d92f5, type: 3}
-  - {fileID: 21300000, guid: 0ec6c8b73ad5080418db9d74009cf8cd, type: 3}
-  - {fileID: 21300000, guid: a3f8959e6c063ea4d81cdc1f8edfe832, type: 3}
-  - {fileID: 21300000, guid: aac7f35a921641b429e76bd62de81424, type: 3}
-  - {fileID: 21300000, guid: 183f2d82acf93b5479e44d639467530c, type: 3}
-  - {fileID: 21300000, guid: adec852d96af8c248971f765d8d81317, type: 3}
-  - {fileID: 21300000, guid: 49308938350abb948a05d2ef03836f78, type: 3}
-  - {fileID: 21300000, guid: 97522037e436c23489dba45a4478979f, type: 3}
-  - {fileID: 21300000, guid: d86c1af58a7190147be4863eb2c67622, type: 3}
-  - {fileID: 21300000, guid: 0f5214315c354e9408e962a3ae9956c9, type: 3}
   PreviousTile: {fileID: 0}
   CurrentTile: {fileID: 0}
   xOffset: -1.25
@@ -5890,6 +5883,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1384126565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1384126561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRedCake: 0
+  hasBlueCake: 0
+  hasGreenCake: 0
+  hasWhiteCake: 0
 --- !u!1 &1391234234
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,6 +5960,7 @@ GameObject:
   - component: {fileID: 1400393304}
   - component: {fileID: 1400393303}
   - component: {fileID: 1400393302}
+  - component: {fileID: 1400393305}
   m_Layer: 0
   m_Name: Player4
   m_TagString: Untagged
@@ -5970,11 +5980,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a010b9eaf27014c8a0c8ffb176e961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasRedCake: 0
-  hasBlueCake: 0
-  hasGreenCake: 0
-  hasWhiteCake: 0
-  playerTokenImages: []
   PreviousTile: {fileID: 0}
   CurrentTile: {fileID: 0}
   xOffset: 1.25
@@ -6046,6 +6051,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -5.9800005}
+--- !u!114 &1400393305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400393301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRedCake: 0
+  hasBlueCake: 0
+  hasGreenCake: 0
+  hasWhiteCake: 0
 --- !u!1 &1410888287
 GameObject:
   m_ObjectHideFlags: 0
@@ -7884,7 +7905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -394.06, y: -58.300007}
+  m_AnchoredPosition: {x: -399.06, y: -35.300007}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1771310616
@@ -8420,6 +8441,7 @@ GameObject:
   - component: {fileID: 1936284521}
   - component: {fileID: 1936284520}
   - component: {fileID: 1936284519}
+  - component: {fileID: 1936284522}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -8439,11 +8461,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a010b9eaf27014c8a0c8ffb176e961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasRedCake: 0
-  hasBlueCake: 0
-  hasGreenCake: 0
-  hasWhiteCake: 0
-  playerTokenImages: []
   PreviousTile: {fileID: 0}
   CurrentTile: {fileID: 0}
   xOffset: 1.25
@@ -8515,6 +8532,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1936284522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936284518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasRedCake: 0
+  hasBlueCake: 0
+  hasGreenCake: 0
+  hasWhiteCake: 0
 --- !u!1 &1940748923
 GameObject:
   m_ObjectHideFlags: 0
