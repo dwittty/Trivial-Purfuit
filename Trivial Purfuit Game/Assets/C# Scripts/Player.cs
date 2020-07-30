@@ -77,15 +77,4 @@ public class Player : MonoBehaviour
         activePlayerToken.SetSpriteBasedOnCakeStatus(hasRedCake, hasBlueCake, hasGreenCake, hasWhiteCake);
 
     }
-
-    internal static Player FindActivePlayer()
-    {
-        var ruleController = FindObjectOfType<RuleController>();
-        int currentTurn = ruleController.CurrentTurn();
-        var players = FindObjectsOfType<Player>().ToList();
-        var activePlayer = players.FirstOrDefault(x => x.name.Contains(currentTurn.ToString()));
-        return activePlayer;
-    }
-
-
 }

@@ -143,7 +143,8 @@ public class RuleController : MonoBehaviour
         {
             Debug.Log($"Rule controller notifies Correct answer. Roll again.");
             var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();            
-            StartCoroutine(correctnessDisplay.ShowMessage(true, 5));            
+            StartCoroutine(correctnessDisplay.ShowMessage(true, 5));
+            DispenseCake();
             return true;
             //TODO: call something to give cake (if on a cake square), and let user know they can continue their turn
         }        
@@ -156,6 +157,19 @@ public class RuleController : MonoBehaviour
             return false;
         }
 
+    }
+
+    //checks if the player who just answered correctly is on a cake square, if he is, gives that player cake of the appropriate color
+    private void DispenseCake()
+    {
+        var playerTokens = FindObjectsOfType<PlayerToken>();
+        var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
+        if (activeToken.CurrentTile.isCake)
+        {
+            var cakeColor = activeToken.CurrentTile.color;
+            var playerObject = activeToken.GetComponentInParent<Player>();
+            playerObject.UpdateCakeState(cakeColor);
+        }
     }
 
     public void receiveAnswer(int answer)

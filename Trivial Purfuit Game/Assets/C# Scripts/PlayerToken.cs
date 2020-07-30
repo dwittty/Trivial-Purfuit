@@ -6,16 +6,7 @@ using System;
 using UnityEngine.UI;
 
 public class PlayerToken : MonoBehaviour
-{
-    // Start is called before the first frame update
-
-    public bool hasRedCake;
-    public bool hasBlueCake;
-    public bool hasGreenCake;
-    public bool hasWhiteCake;
-
-    public Sprite[] playerTokenImages;
-
+{      
     public Tile PreviousTile;
     public Tile CurrentTile;   
 
@@ -41,7 +32,7 @@ public class PlayerToken : MonoBehaviour
         newQuestionNeeded = false;
     }
 
-
+    // Start is called before the first frame update
     void Start()
     {
         PreviousTile = null;
