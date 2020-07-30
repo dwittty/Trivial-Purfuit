@@ -26,8 +26,8 @@ public class RuleController : MonoBehaviour
     private CakeSquareStatus _css;
     private bool _winnerExist;
     
-    private static int _currentPlayersTurn=1;
-    private static int _numUsers = 2;
+    private int _currentPlayersTurn=1;
+    private int _numUsers = 2;
 
     public RuleController()
     {
@@ -151,7 +151,8 @@ public class RuleController : MonoBehaviour
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
             var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
-            StartCoroutine(correctnessDisplay.ShowMessage(false, 5));            
+            StartCoroutine(correctnessDisplay.ShowMessage(false, 5));
+            EndTurn();
             return false;
         }
 
@@ -194,19 +195,21 @@ public class RuleController : MonoBehaviour
         }
     }
 
-    public static int CurrentTurn()
+    public int CurrentTurn()
     {
         return _currentPlayersTurn;
     }
 
-    public static void SetCurrentTurn(int turn)
+    public void SetCurrentTurn(int turn)
     {
         _currentPlayersTurn = turn;
     }
 
-    public static void EndTurn()
+    public void EndTurn()
     {
-        _currentPlayersTurn = ((_currentPlayersTurn + 1) % _numUsers) + 1; //increment turn
+        _currentPlayersTurn = ((_currentPlayersTurn) % _numUsers) + 1; //increment turn
+        var turnBanner = FindObjectOfType<TurnBanner>();
+        turnBanner.UpdateTurnBanner(_currentPlayersTurn.ToString());
     }
 
 

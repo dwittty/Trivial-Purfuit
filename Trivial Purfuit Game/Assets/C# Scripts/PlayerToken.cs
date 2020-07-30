@@ -255,7 +255,8 @@ public class PlayerToken : MonoBehaviour
 
     internal static PlayerToken FindActivePlayerToken()
     {
-        int currentTurn = RuleController.CurrentTurn();
+        var ruleController = FindObjectOfType<RuleController>();
+        int currentTurn = ruleController.CurrentTurn();
         var playerTokens = FindObjectsOfType<PlayerToken>().ToList();
         var activePlayer = playerTokens.FirstOrDefault(x => x.name.Contains(currentTurn.ToString()));
         return activePlayer;

@@ -80,7 +80,8 @@ public class Player : MonoBehaviour
 
     internal static Player FindActivePlayer()
     {
-        int currentTurn = RuleController.CurrentTurn();
+        var ruleController = FindObjectOfType<RuleController>();
+        int currentTurn = ruleController.CurrentTurn();
         var players = FindObjectsOfType<Player>().ToList();
         var activePlayer = players.FirstOrDefault(x => x.name.Contains(currentTurn.ToString()));
         return activePlayer;
