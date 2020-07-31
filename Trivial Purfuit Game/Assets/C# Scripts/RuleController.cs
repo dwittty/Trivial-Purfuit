@@ -137,25 +137,25 @@ public class RuleController : MonoBehaviour
         return new string[0];//_qdb.getMultipleChoice();
     }
 
-    public bool CheckAnswer(string selectedAnswer)
+    public void CheckAnswer(string selectedAnswer)
     {
         if(string.Equals(selectedAnswer, _currentQuestion.Correct))
         {
             Debug.Log($"Rule controller notifies Correct answer. Roll again.");
             var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();            
             StartCoroutine(correctnessDisplay.ShowMessage(true, 5));
-            DispenseCake();
-            return true;
-            //TODO: call something to give cake (if on a cake square), and let user know they can continue their turn
+            DispenseCake();                       
         }        
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
             var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
             StartCoroutine(correctnessDisplay.ShowMessage(false, 5));
-            EndTurn();
-            return false;
+            EndTurn();            
         }
+        //Enable dice, this will either continue current turn if they were correct or allow the next player to roll if they were wrong
+        var diceObject = FindObjectOfType<RollDice>();
+        diceObject.EnableRollDiceButton();
 
     }
 
@@ -209,7 +209,7 @@ public class RuleController : MonoBehaviour
         }
     }
 
-    public int CurrentTurn()
+    public int GetCurrentTurn()
     {
         return _currentPlayersTurn;
     }
@@ -244,7 +244,7 @@ public class RuleController : MonoBehaviour
     {
         if (_css.isFull(_userNumber) && _userLocationX==0 && _userLocationY==0)
         {
-            if (CheckAnswer(""))
+            //if (CheckAnswer(""))
             {
                 _winnerExist = true;
             }

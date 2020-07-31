@@ -20,7 +20,7 @@ public class AnswerSelection : MonoBehaviour
 
     public void AnswerSelected()
     {
-        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
+        var rc = FindObjectOfType<RuleController>() ?? new RuleController();
         rc.CheckAnswer(this.GetComponentInChildren<Text>().text);
     }
 }

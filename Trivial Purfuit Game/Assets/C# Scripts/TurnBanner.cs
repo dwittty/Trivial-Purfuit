@@ -9,8 +9,8 @@ public class TurnBanner : MonoBehaviour
     void Start()
     {
         var guiTextObject = this.gameObject.GetComponent<Text>();
-        var ruleController = FindObjectOfType<RuleController>();
-        var currentPlayer = ruleController.CurrentTurn();
+        var ruleController = FindObjectOfType<RuleController>() ?? new RuleController();
+        var currentPlayer = ruleController.GetCurrentTurn();
         guiTextObject.text = $"Player {currentPlayer}'s Turn";
     }
 

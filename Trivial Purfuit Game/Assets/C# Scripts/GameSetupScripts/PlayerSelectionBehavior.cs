@@ -81,7 +81,7 @@ public class PlayerSelectionBehavior : MonoBehaviour
     {
         turnOrder = new List<Player>();
 
-        RuleController rc = FindObjectOfType<RuleController>();
+        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
         //RuleController rc = new RuleController();
         int temp;
         if (toggle2.isOn == true)
