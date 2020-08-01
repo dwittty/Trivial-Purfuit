@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DirectionChoice : MonoBehaviour
 {
+    public Tile SelectedTile;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class DirectionChoice : MonoBehaviour
 
     public void selectButtonClick()
     {
-        Tile selectedTile = this.GetComponentInParent<Tile>();
+        //Tile selectedTile = this.GetComponentInParent<Tile>();
         
         //find all game objects tagged as 'DirectionChoice' and destroy them
         var directionChoiceGameObjects = GameObject.FindGameObjectsWithTag("DirectionChoice");
@@ -29,7 +31,7 @@ public class DirectionChoice : MonoBehaviour
         }
 
         var playerToken = PlayerToken.FindActivePlayerToken();        
-        playerToken.MoveToken(selectedTile);
+        playerToken.MoveToken(SelectedTile);
     }
 
 }

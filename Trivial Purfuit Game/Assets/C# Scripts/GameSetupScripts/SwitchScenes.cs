@@ -23,6 +23,6 @@ public class SwitchScenes : MonoBehaviour
         RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
         rc.SetNumberOfPlayers(playerSelection.GetNumberOfPlayersForGame());
 
-        SceneManager.LoadScene("SampleScene");              
+        SceneManager.LoadScene("PlayGame");              
     }
 }

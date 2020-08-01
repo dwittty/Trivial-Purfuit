@@ -13,6 +13,9 @@ public class PlayerToken : MonoBehaviour
     public float xOffset;
     public float yOffset;
 
+    public float xPositionOffset = 14.8895904f;
+    public float yPositionOffset = 8.500021216f;
+
     Vector3 targetPosition; //place where tile is moving to in move
     Vector3 velocity = Vector3.zero;
     float smoothTime = 0.25f; //take 0.25 seconds to complete move.
@@ -176,17 +179,24 @@ public class PlayerToken : MonoBehaviour
         //list of tiles that are not 'previous tile.' If this is the first move after rolling dice, this will be all adjacent tiles.
         var nextTiles = CurrentTile.NextTiles.Where(x => x.name != nameOfLastTile).ToList();
 
-        var canvas = FindObjectOfType<Canvas>();
-          
+        var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
+
         foreach (Tile tile in nextTiles)
         {
             Vector3 tilePosition = tile.transform.position;
-            tilePosition.z = -2; //make sure button appears above the board and any other player tokens           
-
-            var screenPosition = Camera.main.WorldToScreenPoint(tile.transform.position);
+            tilePosition.x = tilePosition.x - xPositionOffset;
+            tilePosition.y = tilePosition.y - yPositionOffset;
+            tilePosition.z = -2; //make sure button appears above the board and any other player tokens                                                        
+            Debug.Log($"Tileposition: {tilePosition.x},{tilePosition.y}");
+            var screenPosition = Camera.main.WorldToScreenPoint(tilePosition);
+            Debug.Log($"Screenposition: {screenPosition.x}, {screenPosition.y}");
             screenPosition.z = -2;
             GameObject newButton = Instantiate(directionChoiceButtonPrefab, screenPosition, Quaternion.identity);
-            newButton.transform.SetParent(tile.transform, true); //needs a parent that is part of a canvas to show up on the screen. With tile as parent, can use parent info to determine which tile they selected
+            newButton.transform.SetParent(canvas.transform, true);
+            
+            //associate  tile to button so it can notify the move method of which tile to go to if this button is clicked.
+            newButton.GetComponent<DirectionChoice>().SelectedTile = tile;
+
         }
     }
 
@@ -237,9 +247,9 @@ public class PlayerToken : MonoBehaviour
     void SetNewTargetPosition(Vector3 pos)
     {        
         pos.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
-        pos.x += xOffset;  //adjust position by player offset
-        pos.y += yOffset;  //adjust position by player offset
-
+        pos.x += xOffset - xPositionOffset;  //adjust position by player offset
+        pos.y += yOffset - yPositionOffset;  //adjust position by player offset
+        
         targetPosition = pos;
         velocity = Vector3.zero;
     }
