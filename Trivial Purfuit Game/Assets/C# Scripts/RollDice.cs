@@ -34,7 +34,7 @@ public class RollDice: MonoBehaviour
             Debug.Log($"User moved by {diceResult}. Location updated.");
 
             DisableRollDiceButton();
-
+                        
             var playerToken = PlayerToken.FindActivePlayerToken();
             playerToken.SetSpacesRemainingInMove(diceResult);
             playerToken.ChooseDirectionToMove();

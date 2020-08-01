@@ -125,11 +125,16 @@ public class RuleController : MonoBehaviour
     //}
 
     public void GetAndDisplayNewTriviaQuestion(string color)
-    {
+    {        
         Debug.Log($"RuleController asks QuestionDB to display trivia question and answer choices.");
         var questionDisplay = new QuestionDisplay();
         _currentQuestion = questionDisplay.GetNewQuestion(color, _qdb);
+
+        //activate the group first or the DisplayQuestion method wont be able to find the GameObjects
+        ActivateQuestionAnswerGroup();       
+
         questionDisplay.DisplayQuestion(_currentQuestion);
+
     }
 
     public string[] sendMultipleChoice()
@@ -251,4 +256,27 @@ public class RuleController : MonoBehaviour
         }
         return _winnerExist;
     }
+
+    #region Helper Methods
+    public static GameObject FindObject(GameObject parent, string name)
+    {
+        Transform[] trs = parent.GetComponentsInChildren<Transform>(true);
+        foreach (Transform t in trs)
+        {
+            if (t.name == name)
+            {
+                return t.gameObject;
+            }
+        }
+        return null;
+    }
+
+    public void ActivateQuestionAnswerGroup()
+    {
+        var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
+        var questionAnswerGroup = FindObject(canvas.gameObject, "QuestionAnswerGroup");
+        questionAnswerGroup.SetActive(true);
+    }
+    #endregion
+
 }
