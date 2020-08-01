@@ -71,7 +71,7 @@ public class PlayerToken : MonoBehaviour
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
-    public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake)
+    /*public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake) // round tokens, commented out for testing square tokens
     {
         if (!hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
@@ -156,6 +156,100 @@ public class PlayerToken : MonoBehaviour
         else if (hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
         {
             Sprite sprite = Resources.Load("Sprites/RedBlueGreenWhiteCake", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else
+        {
+            Sprite sprite = Resources.Load("Sprites/Uhoh", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+    }*/
+
+    public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake) // square tokens
+    {
+        if (!hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/NoCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/GreenCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedGreenCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueGreenCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueGreenCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/WhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/GreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedGreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (!hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueGreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            UpdatePlayerTokenSprite(sprite);
+        }
+        else if (hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
+        {
+            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueGreenWhiteCakeS", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else
