@@ -64,7 +64,14 @@ public class PlayerToken : MonoBehaviour
                     newQuestionNeeded = false;
                     //move is complete, ask ruleController for a question:
                     RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
-                    rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
+                    if (CurrentTile.isStart)
+                    {
+                        rc.PromptUserForColorSelection();
+                    }
+                    else
+                    {
+                        rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
+                    }
                 }
             }
         }        

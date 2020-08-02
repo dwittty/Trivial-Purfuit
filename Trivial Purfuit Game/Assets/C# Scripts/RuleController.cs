@@ -117,6 +117,11 @@ public class RuleController : MonoBehaviour
         return _rng.rollDice();
     }
 
+    internal void PromptUserForColorSelection()
+    {
+        ActivateCategorySelectGroup();
+    }
+
     //internal static void GetTriviaQuestion(Tile currentTile)
     //{
     //    var color = currentTile.color;
@@ -317,13 +322,23 @@ public class RuleController : MonoBehaviour
         }
         return null;
     }
-
+    
     public void ActivateQuestionAnswerGroup()
     {
+        //need to find inactive objects using the parent because the FindObjectOfType method won't find inactive objects
         var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
         var questionAnswerGroup = FindObject(canvas.gameObject, "QuestionAnswerGroup");
         questionAnswerGroup.SetActive(true);
     }
+
+    public void ActivateCategorySelectGroup()
+    {
+        //need to find inactive objects using the parent because the FindObjectOfType method won't find inactive objects
+        var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
+        var questionAnswerGroup = FindObject(canvas.gameObject, "CategorySelectGroup");
+        questionAnswerGroup.SetActive(true);
+    }
+
     #endregion
 
 }

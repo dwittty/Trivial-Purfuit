@@ -581,7 +581,7 @@ MonoBehaviour:
   - {fileID: 1215952850}
   color: 
   isCake: 0
-  isStart: 0
+  isStart: 1
 --- !u!4 &58060280
 Transform:
   m_ObjectHideFlags: 0
@@ -2723,6 +2723,7 @@ GameObject:
   - component: {fileID: 729786067}
   - component: {fileID: 729786066}
   - component: {fileID: 729786065}
+  - component: {fileID: 729786068}
   m_Layer: 5
   m_Name: GreenButton
   m_TagString: Untagged
@@ -2792,7 +2793,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 729786066}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 729786068}
+        m_MethodName: ColorSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &729786066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2830,6 +2842,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729786063}
   m_CullTransparentMesh: 0
+--- !u!114 &729786068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729786063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a511a8bbc68f43ae74cfb7be40894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: green
 --- !u!1 &736860632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,7 +3300,7 @@ MonoBehaviour:
   - {fileID: 543540234}
   - {fileID: 285362644}
   color: 
-  isCake: 0
+  isCake: 1
   isStart: 0
 --- !u!4 &800116550
 Transform:
@@ -4944,6 +4969,7 @@ GameObject:
   - component: {fileID: 1088201951}
   - component: {fileID: 1088201950}
   - component: {fileID: 1088201949}
+  - component: {fileID: 1088201952}
   m_Layer: 5
   m_Name: RedButton
   m_TagString: Untagged
@@ -5013,7 +5039,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1088201950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1088201952}
+        m_MethodName: ColorSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1088201950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5051,6 +5088,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088201947}
   m_CullTransparentMesh: 0
+--- !u!114 &1088201952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088201947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a511a8bbc68f43ae74cfb7be40894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: red
 --- !u!1 &1094124474
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,7 +5932,7 @@ MonoBehaviour:
   - {fileID: 2120549767}
   - {fileID: 1654283875}
   color: 
-  isCake: 0
+  isCake: 1
   isStart: 0
 --- !u!4 &1332602252
 Transform:
@@ -6276,7 +6326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1419971637
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6597,6 +6647,7 @@ GameObject:
   - component: {fileID: 1491615888}
   - component: {fileID: 1491615887}
   - component: {fileID: 1491615886}
+  - component: {fileID: 1491615889}
   m_Layer: 5
   m_Name: WhiteButton
   m_TagString: Untagged
@@ -6666,7 +6717,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1491615887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1491615889}
+        m_MethodName: ColorSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1491615887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6704,6 +6766,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1491615884}
   m_CullTransparentMesh: 0
+--- !u!114 &1491615889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491615884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a511a8bbc68f43ae74cfb7be40894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: white
 --- !u!1 &1496030840
 GameObject:
   m_ObjectHideFlags: 0
@@ -7773,6 +7848,7 @@ GameObject:
   - component: {fileID: 1738553446}
   - component: {fileID: 1738553445}
   - component: {fileID: 1738553444}
+  - component: {fileID: 1738553447}
   m_Layer: 5
   m_Name: BlueButton
   m_TagString: Untagged
@@ -7842,7 +7918,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1738553445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1738553447}
+        m_MethodName: ColorSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1738553445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7880,6 +7967,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738553442}
   m_CullTransparentMesh: 0
+--- !u!114 &1738553447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738553442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238a511a8bbc68f43ae74cfb7be40894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: blue
 --- !u!1 &1745079084
 GameObject:
   m_ObjectHideFlags: 0
@@ -8938,7 +9038,7 @@ MonoBehaviour:
   - {fileID: 452614782}
   - {fileID: 912863442}
   color: 
-  isCake: 0
+  isCake: 1
   isStart: 0
 --- !u!4 &1927044015
 Transform:
@@ -9968,7 +10068,7 @@ MonoBehaviour:
   - {fileID: 1496030841}
   - {fileID: 1195322865}
   color: 
-  isCake: 0
+  isCake: 1
   isStart: 0
 --- !u!4 &2129546382
 Transform:
