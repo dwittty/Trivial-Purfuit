@@ -1396,8 +1396,8 @@ MonoBehaviour:
   CurrentTile: {fileID: 0}
   xOffset: 1.25
   yOffset: 1.25
-  xPositionOffset: 14.88959
-  yPositionOffset: 8.500021
+  xPositionOffset: 0
+  yPositionOffset: 0
   directionChoiceButtonPrefab: {fileID: 4694952150221917111, guid: 06c7274e1c5e2f8468bef11cee5e2e03,
     type: 3}
 --- !u!212 &328826939
@@ -1737,8 +1737,8 @@ MonoBehaviour:
   CurrentTile: {fileID: 0}
   xOffset: -1.25
   yOffset: 1.25
-  xPositionOffset: 14.88959
-  yPositionOffset: 8.500021
+  xPositionOffset: 0
+  yPositionOffset: 0
   directionChoiceButtonPrefab: {fileID: 4694952150221917111, guid: 06c7274e1c5e2f8468bef11cee5e2e03,
     type: 3}
 --- !u!212 &400184967
@@ -6417,8 +6417,8 @@ MonoBehaviour:
   CurrentTile: {fileID: 0}
   xOffset: 1.25
   yOffset: -1.25
-  xPositionOffset: 14.88959
-  yPositionOffset: 8.500021
+  xPositionOffset: 0
+  yPositionOffset: 0
   directionChoiceButtonPrefab: {fileID: 4694952150221917111, guid: 06c7274e1c5e2f8468bef11cee5e2e03,
     type: 3}
 --- !u!212 &1438633636
@@ -8498,8 +8498,8 @@ MonoBehaviour:
   CurrentTile: {fileID: 0}
   xOffset: -1.25
   yOffset: -1.25
-  xPositionOffset: 14.88959
-  yPositionOffset: 8.500021
+  xPositionOffset: 0
+  yPositionOffset: 0
   directionChoiceButtonPrefab: {fileID: 4694952150221917111, guid: 06c7274e1c5e2f8468bef11cee5e2e03,
     type: 3}
 --- !u!212 &1818778359

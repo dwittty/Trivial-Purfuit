@@ -14,8 +14,7 @@ public class PlayerToken : MonoBehaviour
     public float yOffset;
 
     //tile position is giving a world position that is off by a fixed amount each time... this fixes it though it might be good to investigate root cause at some point
-    //public float xPositionOffset = 14.8895904f; 
-    public float xPositionOffset = 14.88f;
+    public float xPositionOffset = 14.8895904f;     
     public float yPositionOffset = 8.500021216f;
 
     Vector3 targetPosition; //place where tile is moving to in move
@@ -42,7 +41,9 @@ public class PlayerToken : MonoBehaviour
     {
         PreviousTile = null;
         CurrentTile = FindObjectsOfType<Tile>().FirstOrDefault(x => x.name == "4_4_StartTile");
-        targetPosition = this.transform.position;       
+        targetPosition = this.transform.position;
+        xPositionOffset = 15f;
+        yPositionOffset = 8.5f;
     }
 
     // Update is called once per frame
