@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class RuleController : MonoBehaviour
 {
@@ -13,8 +14,8 @@ public class RuleController : MonoBehaviour
     
     private int _userNumber;
     private string _userName;
-    private int _userLocationX;
-    private int _userLocationY;
+    private float _userLocationX;
+    private float _userLocationY;
     private int _locationColor;
     private int _selectedAnswer;
 
@@ -97,15 +98,15 @@ public class RuleController : MonoBehaviour
     }
 
 
-    public void receiveUserLocation(int locationX,int locationY)
+    public void receiveUserLocation(float locationX,float locationY)
     {
         _userLocationX = locationX;
         _userLocationY = locationY;
     }
 
-    public int[] sendUserLocation()
+    public float[] sendUserLocation()
     {
-        int[] temp = {_userLocationX,_userLocationY };
+        float[] temp = {_userLocationX,_userLocationY };
         
         return temp;
     }
@@ -146,10 +147,23 @@ public class RuleController : MonoBehaviour
     {
         if(string.Equals(selectedAnswer, _currentQuestion.Correct))
         {
-            Debug.Log($"Rule controller notifies Correct answer. Roll again.");
-            var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();            
-            StartCoroutine(correctnessDisplay.ShowMessage(true, 5));
-            DispenseCake();                       
+            float[] temp=sendUserLocation();
+            //var playerTokens = FindObjectsOfType<PlayerToken>();
+            //var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
+            //Debug.Log($"Current position is ({temp[0]},{temp[1]}). ");
+            if (checkCenter() == true && checkFullCake() == true)
+            {
+                _winnerExist = true;
+                Debug.Log($"winner is Player {_currentPlayersTurn}");
+                SceneManager.LoadScene("Winner");
+            }
+            else
+            {
+                //Debug.Log($"Rule controller notifies Correct answer. Roll again.");
+                var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
+                StartCoroutine(correctnessDisplay.ShowMessage(true, 5));
+                DispenseCake();
+            }
         }        
         else
         {
@@ -176,6 +190,23 @@ public class RuleController : MonoBehaviour
             playerObject.UpdateCakeState(cakeColor);
         }
     }
+
+
+    private bool checkFullCake()
+    {
+        var playerTokens = FindObjectsOfType<PlayerToken>();
+        var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
+        
+        var playerObject = activeToken.GetComponentInParent<Player>();
+        if (playerObject.hasRedCake == true && playerObject.hasBlueCake == true && playerObject.hasWhiteCake == true && playerObject.hasGreenCake == true)
+            return true;
+        else
+            return false;
+
+    }
+
+
+
 
     public void receiveAnswer(int answer)
     {
@@ -245,7 +276,7 @@ public class RuleController : MonoBehaviour
 
 
     //function decide winner
-    public bool winnerDecision(int input)
+    public bool winnerDecision()
     {
         if (_css.isFull(_userNumber) && _userLocationX==0 && _userLocationY==0)
         {
@@ -256,6 +287,22 @@ public class RuleController : MonoBehaviour
         }
         return _winnerExist;
     }
+
+
+    public bool checkCenter()
+    {
+        if (_userLocationX>-1.14 && _userLocationX<1.37 && _userLocationY>-1.26 && _userLocationY<1.25)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+
 
     #region Helper Methods
     public static GameObject FindObject(GameObject parent, string name)

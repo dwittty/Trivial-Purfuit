@@ -343,7 +343,10 @@ public class PlayerToken : MonoBehaviour
         pos.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
         pos.x += xOffset - xPositionOffset;  //adjust position by player offset
         pos.y += yOffset - yPositionOffset;  //adjust position by player offset
-        
+
+        RuleController rc = FindObjectOfType<RuleController>();
+        rc.receiveUserLocation(pos.x, pos.y);
+
         targetPosition = pos;
         velocity = Vector3.zero;
     }
