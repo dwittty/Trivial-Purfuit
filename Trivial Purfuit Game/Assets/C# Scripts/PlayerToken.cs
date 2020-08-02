@@ -13,7 +13,9 @@ public class PlayerToken : MonoBehaviour
     public float xOffset;
     public float yOffset;
 
-    public float xPositionOffset = 14.8895904f;
+    //tile position is giving a world position that is off by a fixed amount each time... this fixes it though it might be good to investigate root cause at some point
+    //public float xPositionOffset = 14.8895904f; 
+    public float xPositionOffset = 14.88f;
     public float yPositionOffset = 8.500021216f;
 
     Vector3 targetPosition; //place where tile is moving to in move
@@ -348,7 +350,7 @@ public class PlayerToken : MonoBehaviour
     void SetNewTargetPosition(Vector3 pos)
     {        
         pos.z = -1; //make z index -1 so the player token is always closer to the camera than the board object.
-        pos.x += xOffset - xPositionOffset;  //adjust position by player offset
+        pos.x += xOffset - xPositionOffset;  //adjust position by player offset 
         pos.y += yOffset - yPositionOffset;  //adjust position by player offset
 
         RuleController rc = FindObjectOfType<RuleController>();
