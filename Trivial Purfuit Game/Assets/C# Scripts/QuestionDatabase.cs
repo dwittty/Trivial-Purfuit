@@ -10,17 +10,21 @@ public class QuestionDatabase
 {
     
     private QuestionCategory[] Questions;
-    private static readonly string Filepath = "Assets/TextFiles/questions.csv";
+    private static readonly string ResourcePath = "TextFiles/questions";
+    private TextAsset questionFile;
 
     public QuestionDatabase(string filepath)
     {
+        questionFile = Resources.Load(ResourcePath, typeof(TextAsset)) as TextAsset;
+
         Questions = new QuestionCategory[4];
         Questions[0] = new QuestionCategory(Category.RED);
         Questions[1] = new QuestionCategory(Category.GREEN);
         Questions[2] = new QuestionCategory(Category.BLUE);
         Questions[3] = new QuestionCategory(Category.WHITE);
 
-        LoadQuestions(filepath);
+        //LoadQuestions(filepath);
+        LoadQuestions();
 
         Questions[0].Shuffle();
         Questions[1].Shuffle();
@@ -28,17 +32,18 @@ public class QuestionDatabase
         Questions[3].Shuffle();
     }
 
-    public QuestionDatabase() :
-        this(Filepath)
+    public QuestionDatabase() : this(ResourcePath)
     { 
+       
     }
 
-    // Read/parse CSV file at path and load the questions into their respective
+    // Read/parse CSV text asset read from file in Resources and load the questions into their respective
     // categories.
-    private void LoadQuestions(string filepath)
+    private void LoadQuestions()
     {
         // use CSV parser library to read file
-        fgCSVReader.LoadFromFile(filepath, new fgCSVReader.ReadLineDelegate(ReadLineIntoQuestion));
+        //fgCSVReader.LoadFromFile(filepath, new fgCSVReader.ReadLineDelegate(ReadLineIntoQuestion));
+        fgCSVReader.LoadFromTextAsset(questionFile, new fgCSVReader.ReadLineDelegate(ReadLineIntoQuestion));
     }
 
     private void ReadLineIntoQuestion(int line_index, List<string> vals)

@@ -8,6 +8,7 @@ using System;
 using System.Text;
 using System.IO;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class fgCSVReader
 {
@@ -16,6 +17,11 @@ public class fgCSVReader
     public static void LoadFromFile(string file_name, ReadLineDelegate line_reader)
     {
         LoadFromString(File.ReadAllText(file_name), line_reader);
+    }
+
+    public static void LoadFromTextAsset(TextAsset file, ReadLineDelegate line_reader)
+    {
+        LoadFromString(file.text, line_reader);
     }
 
     public static void LoadFromString(string file_contents, ReadLineDelegate line_reader)

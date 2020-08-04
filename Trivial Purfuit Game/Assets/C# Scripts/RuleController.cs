@@ -34,7 +34,7 @@ public class RuleController : MonoBehaviour
     {
         //generate instances
         _rng = new RandomNumberGeneratorDice();     
-        _qdb = new QuestionDatabase();
+        //_qdb = new QuestionDatabase(); //moved to Start because you can't call Load() in the constructor of a monobehavior
         _css = new CakeSquareStatus(_numUsers);
         _winnerExist = false;               
     }
@@ -65,7 +65,7 @@ public class RuleController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _qdb = new QuestionDatabase();
     }
 
     // Update is called once per frame
