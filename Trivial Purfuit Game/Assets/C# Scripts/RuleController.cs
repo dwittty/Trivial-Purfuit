@@ -295,10 +295,10 @@ public class RuleController : MonoBehaviour
 
 
     public bool checkCenter()
-    {
-        var token = FindObjectOfType<PlayerToken>() ?? new PlayerToken(); ;
+    {        
+        var currentPlayerToken = FindObjectsOfType<PlayerToken>().FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn) ?? new PlayerToken();
         //if (_userLocationX>-1.14 && _userLocationX<1.37 && _userLocationY>-1.26 && _userLocationY<1.25)
-        if (token.CurrentTile.IsStart()==true)
+        if (currentPlayerToken.CurrentTile.IsStart()==true)
         {
             return true;
         }
