@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
         
     }
 
-    private string GetColor()
+    public string GetColor()
     {
         var name = gameObject.name.ToUpper();
         if (name.Contains("RED"))
@@ -59,7 +59,7 @@ public class Tile : MonoBehaviour
         return name.Contains("CAKE");
     }
 
-    private bool IsStart()
+    public bool IsStart()
     {
         var name = gameObject.name.ToUpper();
         return name.Contains("START");

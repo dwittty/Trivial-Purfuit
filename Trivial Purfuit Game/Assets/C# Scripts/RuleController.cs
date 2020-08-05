@@ -296,7 +296,9 @@ public class RuleController : MonoBehaviour
 
     public bool checkCenter()
     {
-        if (_userLocationX>-1.14 && _userLocationX<1.37 && _userLocationY>-1.26 && _userLocationY<1.25)
+        var token = FindObjectOfType<PlayerToken>() ?? new PlayerToken(); ;
+        //if (_userLocationX>-1.14 && _userLocationX<1.37 && _userLocationY>-1.26 && _userLocationY<1.25)
+        if (token.CurrentTile.IsStart()==true)
         {
             return true;
         }
