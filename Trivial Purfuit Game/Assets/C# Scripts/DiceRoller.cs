@@ -8,18 +8,24 @@ public class DiceRoller: MonoBehaviour
 {
     public Text textField;
     public bool isDisabled;
+    public bool isRolling; 
+
     public Sprite[] diceImages;
    
     // Start is called before the first frame update
     void Start()
     {
         isDisabled = false;
+        isRolling = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (isRolling)
+        {
+            textField.text = "The dice result is: ?";
+        }        
     }
 
     public void Roll()
@@ -31,15 +37,9 @@ public class DiceRoller: MonoBehaviour
             //int randomInt = Random.Range(1, 7); //Return number 1 to 6 (the top of the range is exclusive, not inclusive)        
             RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
             int diceResult = rc.rollDice();
-            Debug.Log($"You rolled a {diceResult}.");
-            textField.text = "The dice result is: " + diceResult.ToString();
-            Debug.Log($"User moved by {diceResult}. Location updated.");
 
-            this.transform.GetChild(0).GetComponent<Image>().sprite = diceImages[diceResult - 1];
-                        
-            var playerToken = PlayerToken.FindActivePlayerToken();
-            playerToken.SetSpacesRemainingInMove(diceResult);
-            playerToken.ChooseDirectionToMove();
+            //animate random images for length of time specified in seconds by the float value
+            StartCoroutine(RollDiceAnimator(1f, diceResult));                                             
         }
         else
         {
@@ -61,10 +61,24 @@ public class DiceRoller: MonoBehaviour
         isDisabled = false;
     }
 
+    public IEnumerator RollDiceAnimator(float animationTime, int finalResult) {
+        int iterationsToAnimate = (int)(20 * animationTime);
+        for (int i = 0; i <= iterationsToAnimate; i++)
+        {            
+            var randomDiceNumber = Random.Range(0, 5);            
+            this.transform.GetChild(0).GetComponent<Image>().sprite = diceImages[randomDiceNumber];            
+            yield return new WaitForSeconds(0.05f);
+        }
+        //after animation of random images, update to final result from rule controller
+        Debug.Log($"You rolled a {finalResult}.");
+        textField.text = "The dice result is: " + finalResult.ToString();
+        Debug.Log($"User moved by {finalResult}. Location updated.");
 
-    private IEnumerator Waiter(int seconds)
-    {
-        yield return new WaitForSeconds(seconds);
+        this.transform.GetChild(0).GetComponent<Image>().sprite = diceImages[finalResult - 1];
+
+        var playerToken = PlayerToken.FindActivePlayerToken();
+        playerToken.SetSpacesRemainingInMove(finalResult);
+        playerToken.ChooseDirectionToMove();
     }
 
 }

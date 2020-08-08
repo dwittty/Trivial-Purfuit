@@ -3746,7 +3746,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'The dice result is: '
+  m_Text: 'The dice result is: ?'
 --- !u!222 &861650214
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4245,6 +4245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 861650213}
   isDisabled: 0
+  isRolling: 0
   diceImages:
   - {fileID: 21300000, guid: 76f9d9aadce06784a848c48d6027b571, type: 3}
   - {fileID: 21300000, guid: e8e2234028ecfd641beef5c2ac7042f7, type: 3}
