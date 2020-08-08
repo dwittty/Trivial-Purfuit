@@ -122,6 +122,14 @@ public class RuleController : MonoBehaviour
         ActivateCategorySelectGroup();
     }
 
+    internal void RollAgain()
+    {
+        var rollAgainDisplay = FindObjectOfType<MessageDisplay>();
+        StartCoroutine(rollAgainDisplay.ShowMessage(5, "ROLL AGAIN!", new Color32(11, 137, 11, 255)));
+        var diceObject = FindObjectOfType<RollDice>();
+        diceObject.EnableRollDiceButton();
+    }
+
     //internal static void GetTriviaQuestion(Tile currentTile)
     //{
     //    var color = currentTile.color;
@@ -165,16 +173,16 @@ public class RuleController : MonoBehaviour
             else
             {
                 //Debug.Log($"Rule controller notifies Correct answer. Roll again.");
-                var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
-                StartCoroutine(correctnessDisplay.ShowMessage(true, 5));
+                var correctnessDisplay = FindObjectOfType<MessageDisplay>();
+                StartCoroutine(correctnessDisplay.ShowMessage(5, "CORRECT", new Color32(11, 137, 11, 255)));
                 DispenseCake();
             }
         }        
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
-            var correctnessDisplay = FindObjectOfType<AnswerCorrectnessDisplay>();
-            StartCoroutine(correctnessDisplay.ShowMessage(false, 5));
+            var correctnessDisplay = FindObjectOfType<MessageDisplay>();
+            StartCoroutine(correctnessDisplay.ShowMessage(5, "INCORRECT", new Color32(205, 42, 44, 255)));
             EndTurn();            
         }
         //Enable dice, this will either continue current turn if they were correct or allow the next player to roll if they were wrong
@@ -188,7 +196,7 @@ public class RuleController : MonoBehaviour
     {
         var playerTokens = FindObjectsOfType<PlayerToken>();
         var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
-        if (activeToken.CurrentTile.isCake)
+        if (activeToken.CurrentTile.IsCake)
         {
             var cakeColor = activeToken.CurrentTile.color;
             var playerObject = activeToken.GetComponentInParent<Player>();
@@ -298,7 +306,7 @@ public class RuleController : MonoBehaviour
     {        
         var currentPlayerToken = FindObjectsOfType<PlayerToken>().FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn) ?? new PlayerToken();
         //if (_userLocationX>-1.14 && _userLocationX<1.37 && _userLocationY>-1.26 && _userLocationY<1.25)
-        if (currentPlayerToken.CurrentTile.IsStart()==true)
+        if (currentPlayerToken.CurrentTile.CheckIfTileIsStart()==true)
         {
             return true;
         }

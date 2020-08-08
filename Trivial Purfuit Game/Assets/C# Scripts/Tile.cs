@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,17 +10,18 @@ public class Tile : MonoBehaviour
     public Tile[] NextTiles;
 
     public string color;
-    public bool isCake;
-    public bool isStart;
-   
+    public bool IsCake;
+    public bool IsStart;
+    public bool IsRollAgain;
 
     // Start is called before the first frame update
     void Start()
     {
         color = this.GetColor();
-        isCake = this.IsCake();
-        isStart = this.IsStart();
-    }   
+        IsCake = this.CheckIfTileIsCake();
+        IsStart = this.CheckIfTileIsStart();
+        IsRollAgain = this.CheckIfTileIsRollAgain();
+    }
 
     // Update is called once per frame
     void Update()
@@ -53,15 +55,21 @@ public class Tile : MonoBehaviour
     }
 
 
-    private bool IsCake()
+    private bool CheckIfTileIsCake()
     {
         var name = gameObject.name.ToUpper();
         return name.Contains("CAKE");
     }
 
-    public bool IsStart()
+    public bool CheckIfTileIsStart()
     {
         var name = gameObject.name.ToUpper();
         return name.Contains("START");
+    }
+
+    private bool CheckIfTileIsRollAgain()
+    {
+        var name = gameObject.name.ToUpper();
+        return name.Contains("ROLLAGAIN");
     }
 }

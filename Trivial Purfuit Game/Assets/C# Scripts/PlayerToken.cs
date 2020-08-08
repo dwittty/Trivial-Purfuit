@@ -67,9 +67,13 @@ public class PlayerToken : MonoBehaviour
                     newQuestionNeeded = false;
                     //move is complete, ask ruleController for a question:
                     RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
-                    if (CurrentTile.isStart)
+                    if (CurrentTile.IsStart)
                     {
                         rc.PromptUserForColorSelection();
+                    }
+                    else if (CurrentTile.IsRollAgain)
+                    {
+                        rc.RollAgain();
                     }
                     else
                     {
