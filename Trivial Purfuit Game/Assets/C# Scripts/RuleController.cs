@@ -26,7 +26,8 @@ public class RuleController : MonoBehaviour
     private Question _currentQuestion;
     private CakeSquareStatus _css;
     private bool _winnerExist;
-    
+    private GameObject _timer;
+
     private int _currentPlayersTurn=1;
     private int _numUsers = 2;
 
@@ -62,10 +63,24 @@ public class RuleController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;  
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == "PlayGame")
+        {
+            _timer = GameObject.FindGameObjectWithTag("Timer");
+            DisableAndResetTimer();            
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        _qdb = new QuestionDatabase();
+        _qdb = new QuestionDatabase();        
     }
 
     // Update is called once per frame
@@ -119,15 +134,13 @@ public class RuleController : MonoBehaviour
 
     internal void PromptUserForColorSelection()
     {
-        ActivateCategorySelectGroup();
+        ActivateCategorySelectGroup(true);
     }
 
     internal void RollAgain()
-    {
-        var rollAgainDisplay = FindObjectOfType<MessageDisplay>();
-        StartCoroutine(rollAgainDisplay.ShowMessage(5, "ROLL AGAIN!", new Color32(11, 137, 11, 255)));
-        var diceObject = FindObjectOfType<DiceRoller>();
-        diceObject.EnableRollDiceButton();
+    {        
+        DisplayMessage(5, "ROLL AGAIN!", new Color32(11, 137, 11, 255));
+        EnableDiceButton();        
     }
 
     //internal static void GetTriviaQuestion(Tile currentTile)
@@ -145,11 +158,13 @@ public class RuleController : MonoBehaviour
         _currentQuestion = questionDisplay.GetNewQuestion(color, _qdb);
 
         //activate the group first or the DisplayQuestion method wont be able to find the GameObjects
-        ActivateQuestionAnswerGroup();       
+        SetAndActivateTimer();
+        ActivateQuestionAnswerGroup(true);       
 
         questionDisplay.DisplayQuestion(_currentQuestion);
 
     }
+
 
     public string[] sendMultipleChoice()
     {
@@ -158,7 +173,9 @@ public class RuleController : MonoBehaviour
 
     public void CheckAnswer(string selectedAnswer)
     {
-        if(string.Equals(selectedAnswer, _currentQuestion.Correct))
+        DisableAndResetTimer(); //question was answered, right or wrong, end the timer countdown
+        
+        if (string.Equals(selectedAnswer, _currentQuestion.Correct))
         {
             float[] temp=sendUserLocation();
             //var playerTokens = FindObjectsOfType<PlayerToken>();
@@ -173,21 +190,18 @@ public class RuleController : MonoBehaviour
             else
             {
                 //Debug.Log($"Rule controller notifies Correct answer. Roll again.");
-                var correctnessDisplay = FindObjectOfType<MessageDisplay>();
-                StartCoroutine(correctnessDisplay.ShowMessage(5, "CORRECT", new Color32(11, 137, 11, 255)));
+                DisplayMessage(5, "CORRECT", new Color32(11, 137, 11, 255));                
                 DispenseCake();
             }
         }        
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
-            var correctnessDisplay = FindObjectOfType<MessageDisplay>();
-            StartCoroutine(correctnessDisplay.ShowMessage(5, "INCORRECT", new Color32(205, 42, 44, 255)));
+            DisplayMessage(5, "INCORRECT", new Color32(205, 42, 44, 255));            
             EndTurn();            
         }
         //Enable dice, this will either continue current turn if they were correct or allow the next player to roll if they were wrong
-        var diceObject = FindObjectOfType<DiceRoller>();
-        diceObject.EnableRollDiceButton();
+        EnableDiceButton();
 
     }
 
@@ -254,7 +268,6 @@ public class RuleController : MonoBehaviour
         for (int i = 0; i < _numUsers; i++)
         {
             Debug.Log($"{_turnOrder.ElementAt(i).getPlayerName()} got dice number {_turnOrder.ElementAt(i).getDiceNum()}");
-
         }
     }
 
@@ -273,6 +286,9 @@ public class RuleController : MonoBehaviour
         _currentPlayersTurn = ((_currentPlayersTurn) % _numUsers) + 1; //increment turn
         var turnBanner = FindObjectOfType<TurnBanner>();
         turnBanner.UpdateTurnBanner(_currentPlayersTurn.ToString());
+        ActivateQuestionAnswerGroup(false);
+        EnableDiceButton();
+        DisableAndResetTimer();
     }
 
 
@@ -317,7 +333,13 @@ public class RuleController : MonoBehaviour
 
     }
 
-
+    //wrapper for displaying a message
+    public void DisplayMessage(float delay, string message, Color32 color)
+    {
+        var rollAgainDisplay = FindObjectOfType<MessageDisplay>();
+        StartCoroutine(rollAgainDisplay.ShowMessage(delay, message, color));
+    }
+    
 
     #region Helper Methods
     public static GameObject FindObject(GameObject parent, string name)
@@ -333,20 +355,42 @@ public class RuleController : MonoBehaviour
         return null;
     }
     
-    public void ActivateQuestionAnswerGroup()
+    public void ActivateQuestionAnswerGroup(bool activate)
     {
         //need to find inactive objects using the parent because the FindObjectOfType method won't find inactive objects
         var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
         var questionAnswerGroup = FindObject(canvas.gameObject, "QuestionAnswerGroup");
-        questionAnswerGroup.SetActive(true);
+        questionAnswerGroup.SetActive(activate);
     }
 
-    public void ActivateCategorySelectGroup()
+    public void ActivateCategorySelectGroup(bool activate)
     {
         //need to find inactive objects using the parent because the FindObjectOfType method won't find inactive objects
         var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
         var questionAnswerGroup = FindObject(canvas.gameObject, "CategorySelectGroup");
-        questionAnswerGroup.SetActive(true);
+        questionAnswerGroup.SetActive(activate);
+    }
+
+
+    private void SetAndActivateTimer()
+    {
+        _timer.SetActive(true);
+        _timer.GetComponent<TurnTimer>().timeRemaining = 30;
+        _timer.GetComponent<TurnTimer>().timerRunning = true;
+    }
+
+    public void DisableAndResetTimer()
+    {               
+        _timer.SetActive(false);
+        _timer.GetComponent<TurnTimer>().timeRemaining = 30;
+        _timer.GetComponent<TurnTimer>().timerRunning = true; //setting timerRunning to true so it is ready to start running on the next frame the next time setActive(true) happens.
+
+    }
+
+    public void EnableDiceButton()
+    {
+        var diceObject = FindObjectOfType<DiceRoller>();
+        diceObject.EnableRollDiceButton();
     }
 
     #endregion
