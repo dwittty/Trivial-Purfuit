@@ -39,7 +39,7 @@ public class TurnTimer : MonoBehaviour
         {
             //timer no longer running, they ran out of time, end the turn
             RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
-            rc.DisplayMessage(5, "OUT OF TIME! TURN OVER!", new Color32(205, 42, 44, 255));            
+            rc.DisplayMessage(5, "OUT OF TIME!", new Color32(205, 42, 44, 255));            
             rc.EndTurn();
         }
         
