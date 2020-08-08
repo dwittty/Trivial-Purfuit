@@ -126,7 +126,7 @@ public class RuleController : MonoBehaviour
     {
         var rollAgainDisplay = FindObjectOfType<MessageDisplay>();
         StartCoroutine(rollAgainDisplay.ShowMessage(5, "ROLL AGAIN!", new Color32(11, 137, 11, 255)));
-        var diceObject = FindObjectOfType<RollDice>();
+        var diceObject = FindObjectOfType<DiceRoller>();
         diceObject.EnableRollDiceButton();
     }
 
@@ -186,7 +186,7 @@ public class RuleController : MonoBehaviour
             EndTurn();            
         }
         //Enable dice, this will either continue current turn if they were correct or allow the next player to roll if they were wrong
-        var diceObject = FindObjectOfType<RollDice>();
+        var diceObject = FindObjectOfType<DiceRoller>();
         diceObject.EnableRollDiceButton();
 
     }

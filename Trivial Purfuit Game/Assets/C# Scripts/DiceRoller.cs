@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 
-public class RollDice: MonoBehaviour
+public class DiceRoller: MonoBehaviour
 {
     public Text textField;
     public bool isDisabled;
-
+    public Sprite[] diceImages;
    
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,8 @@ public class RollDice: MonoBehaviour
     {
         if (!isDisabled)
         {
+            DisableRollDiceButton();
+
             //int randomInt = Random.Range(1, 7); //Return number 1 to 6 (the top of the range is exclusive, not inclusive)        
             RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
             int diceResult = rc.rollDice();
@@ -33,7 +35,7 @@ public class RollDice: MonoBehaviour
             textField.text = "The dice result is: " + diceResult.ToString();
             Debug.Log($"User moved by {diceResult}. Location updated.");
 
-            DisableRollDiceButton();
+            this.transform.GetChild(0).GetComponent<Image>().sprite = diceImages[diceResult - 1];
                         
             var playerToken = PlayerToken.FindActivePlayerToken();
             playerToken.SetSpacesRemainingInMove(diceResult);

@@ -235,8 +235,9 @@ MonoBehaviour:
   - {fileID: 1705648112}
   - {fileID: 609195169}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &18190339
 Transform:
   m_ObjectHideFlags: 0
@@ -285,8 +286,9 @@ MonoBehaviour:
   - {fileID: 755027381}
   - {fileID: 58060279}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &22638049
 Transform:
   m_ObjectHideFlags: 0
@@ -580,8 +582,9 @@ MonoBehaviour:
   - {fileID: 1372059193}
   - {fileID: 1215952850}
   color: 
-  isCake: 0
-  isStart: 1
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &58060280
 Transform:
   m_ObjectHideFlags: 0
@@ -1263,8 +1266,9 @@ MonoBehaviour:
   - {fileID: 1531594495}
   - {fileID: 1069498396}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &255008771
 Transform:
   m_ObjectHideFlags: 0
@@ -1313,8 +1317,9 @@ MonoBehaviour:
   - {fileID: 800116549}
   - {fileID: 1163300534}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &285362645
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,8 +1988,9 @@ MonoBehaviour:
   - {fileID: 1927044014}
   - {fileID: 1247568021}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &452614783
 Transform:
   m_ObjectHideFlags: 0
@@ -2114,8 +2120,9 @@ MonoBehaviour:
   - {fileID: 800116549}
   - {fileID: 1531594495}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &543540235
 Transform:
   m_ObjectHideFlags: 0
@@ -2323,8 +2330,9 @@ MonoBehaviour:
   - {fileID: 18190338}
   - {fileID: 1627252075}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &609195170
 Transform:
   m_ObjectHideFlags: 0
@@ -2454,8 +2462,9 @@ MonoBehaviour:
   - {fileID: 1654283875}
   - {fileID: 2111151763}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &626651722
 Transform:
   m_ObjectHideFlags: 0
@@ -2888,8 +2897,9 @@ MonoBehaviour:
   - {fileID: 1247568021}
   - {fileID: 1379891080}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &736860634
 Transform:
   m_ObjectHideFlags: 0
@@ -2938,8 +2948,9 @@ MonoBehaviour:
   - {fileID: 771314805}
   - {fileID: 1699173241}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &743080475
 Transform:
   m_ObjectHideFlags: 0
@@ -3069,8 +3080,9 @@ MonoBehaviour:
   - {fileID: 1163300534}
   - {fileID: 58060279}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &749114395
 Transform:
   m_ObjectHideFlags: 0
@@ -3119,8 +3131,9 @@ MonoBehaviour:
   - {fileID: 1195322865}
   - {fileID: 22638048}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &755027382
 Transform:
   m_ObjectHideFlags: 0
@@ -3184,8 +3197,9 @@ MonoBehaviour:
   - {fileID: 1160723027}
   - {fileID: 743080474}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!1 &791263336
 GameObject:
   m_ObjectHideFlags: 0
@@ -3300,8 +3314,9 @@ MonoBehaviour:
   - {fileID: 543540234}
   - {fileID: 285362644}
   color: 
-  isCake: 1
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &800116550
 Transform:
   m_ObjectHideFlags: 0
@@ -3431,8 +3446,9 @@ MonoBehaviour:
   - {fileID: 989538467}
   - {fileID: 1356469791}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &823009047
 Transform:
   m_ObjectHideFlags: 0
@@ -3643,8 +3659,9 @@ MonoBehaviour:
   - {fileID: 1215952850}
   - {fileID: 912863442}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &854980576
 Transform:
   m_ObjectHideFlags: 0
@@ -3694,7 +3711,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -118, y: -26.600006}
+  m_AnchoredPosition: {x: -126, y: -135}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861650213
@@ -3995,8 +4012,9 @@ MonoBehaviour:
   - {fileID: 854980575}
   - {fileID: 1927044014}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &912863443
 Transform:
   m_ObjectHideFlags: 0
@@ -4174,6 +4192,103 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &947488564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 947488565}
+  - component: {fileID: 947488568}
+  - component: {fileID: 947488567}
+  - component: {fileID: 947488566}
+  m_Layer: 5
+  m_Name: DiceRoller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &947488565
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947488564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1176460374}
+  m_Father: {fileID: 2012377102}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -118, y: -50}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &947488566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947488564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c949e3e67b2a25e4b91312ae0e028348, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textField: {fileID: 861650213}
+  isDisabled: 0
+  diceImages:
+  - {fileID: 21300000, guid: 76f9d9aadce06784a848c48d6027b571, type: 3}
+  - {fileID: 21300000, guid: e8e2234028ecfd641beef5c2ac7042f7, type: 3}
+  - {fileID: 21300000, guid: 9208ebff8dfc854429033b1f7a6a42e4, type: 3}
+  - {fileID: 21300000, guid: 15e3c9789d00ace49b43724ec713e6c9, type: 3}
+  - {fileID: 21300000, guid: 70a350cc50d27e84b9bfe780736703fc, type: 3}
+  - {fileID: 21300000, guid: 28fe289e108ab9f4ca909219cb5420c3, type: 3}
+--- !u!114 &947488567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947488564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &947488568
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947488564}
+  m_CullTransparentMesh: 0
 --- !u!1 &951526390
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,8 +4496,9 @@ MonoBehaviour:
   - {fileID: 1412191636}
   - {fileID: 1927044014}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &962088045
 Transform:
   m_ObjectHideFlags: 0
@@ -4615,8 +4731,9 @@ MonoBehaviour:
   - {fileID: 1160723027}
   - {fileID: 823009046}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &989538468
 Transform:
   m_ObjectHideFlags: 0
@@ -4824,8 +4941,9 @@ MonoBehaviour:
   - {fileID: 255008770}
   - {fileID: 1877592055}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1069498397
 Transform:
   m_ObjectHideFlags: 0
@@ -4940,8 +5058,9 @@ MonoBehaviour:
   - {fileID: 1877592055}
   - {fileID: 2120549767}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1079940989
 Transform:
   m_ObjectHideFlags: 0
@@ -5275,7 +5394,6 @@ GameObject:
   - component: {fileID: 1152499532}
   - component: {fileID: 1152499531}
   - component: {fileID: 1152499530}
-  - component: {fileID: 1152499529}
   m_Layer: 5
   m_Name: DiceButton
   m_TagString: Untagged
@@ -5303,20 +5421,6 @@ RectTransform:
   m_AnchoredPosition: {x: -118, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1152499529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152499527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c949e3e67b2a25e4b91312ae0e028348, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textField: {fileID: 861650213}
-  isDisabled: 0
 --- !u!114 &1152499530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5360,7 +5464,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1152499529}
+      - m_Target: {fileID: 947488566}
         m_MethodName: Roll
         m_Mode: 1
         m_Arguments:
@@ -5441,8 +5545,9 @@ MonoBehaviour:
   - {fileID: 989538467}
   - {fileID: 771314805}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1160723028
 Transform:
   m_ObjectHideFlags: 0
@@ -5491,8 +5596,9 @@ MonoBehaviour:
   - {fileID: 285362644}
   - {fileID: 749114394}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1163300535
 Transform:
   m_ObjectHideFlags: 0
@@ -5589,6 +5695,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1176460373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176460374}
+  - component: {fileID: 1176460376}
+  - component: {fileID: 1176460375}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1176460374
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176460373}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 947488565}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -50, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1176460375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176460373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1176460376
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176460373}
+  m_CullTransparentMesh: 0
 --- !u!1 &1195322864
 GameObject:
   m_ObjectHideFlags: 0
@@ -5622,8 +5802,9 @@ MonoBehaviour:
   - {fileID: 2129546381}
   - {fileID: 755027381}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1195322866
 Transform:
   m_ObjectHideFlags: 0
@@ -5672,8 +5853,9 @@ MonoBehaviour:
   - {fileID: 58060279}
   - {fileID: 854980575}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1215952851
 Transform:
   m_ObjectHideFlags: 0
@@ -5803,8 +5985,9 @@ MonoBehaviour:
   - {fileID: 452614782}
   - {fileID: 736860633}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1247568022
 Transform:
   m_ObjectHideFlags: 0
@@ -5932,8 +6115,9 @@ MonoBehaviour:
   - {fileID: 2120549767}
   - {fileID: 1654283875}
   color: 
-  isCake: 1
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1332602252
 Transform:
   m_ObjectHideFlags: 0
@@ -5982,8 +6166,9 @@ MonoBehaviour:
   - {fileID: 823009046}
   - {fileID: 800116549}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1356469792
 Transform:
   m_ObjectHideFlags: 0
@@ -6113,8 +6298,9 @@ MonoBehaviour:
   - {fileID: 58060279}
   - {fileID: 1781685679}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1372059194
 Transform:
   m_ObjectHideFlags: 0
@@ -6163,8 +6349,9 @@ MonoBehaviour:
   - {fileID: 736860633}
   - {fileID: 2111151763}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1379891081
 Transform:
   m_ObjectHideFlags: 0
@@ -6294,8 +6481,9 @@ MonoBehaviour:
   - {fileID: 1627252075}
   - {fileID: 962088044}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1412191637
 Transform:
   m_ObjectHideFlags: 0
@@ -6812,8 +7000,9 @@ MonoBehaviour:
   - {fileID: 2129546381}
   - {fileID: 1705648112}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1496030842
 Transform:
   m_ObjectHideFlags: 0
@@ -6862,8 +7051,9 @@ MonoBehaviour:
   - {fileID: 543540234}
   - {fileID: 255008770}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1531594496
 Transform:
   m_ObjectHideFlags: 0
@@ -7111,8 +7301,9 @@ MonoBehaviour:
   - {fileID: 609195169}
   - {fileID: 1412191636}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1627252076
 Transform:
   m_ObjectHideFlags: 0
@@ -7404,8 +7595,9 @@ MonoBehaviour:
   - {fileID: 1332602251}
   - {fileID: 626651721}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1654283876
 Transform:
   m_ObjectHideFlags: 0
@@ -7688,8 +7880,9 @@ MonoBehaviour:
   - {fileID: 743080474}
   - {fileID: 2129546381}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1699173242
 Transform:
   m_ObjectHideFlags: 0
@@ -7738,8 +7931,9 @@ MonoBehaviour:
   - {fileID: 1496030841}
   - {fileID: 18190338}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1705648113
 Transform:
   m_ObjectHideFlags: 0
@@ -8094,8 +8288,9 @@ MonoBehaviour:
   - {fileID: 1372059193}
   - {fileID: 1980420780}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1781685680
 Transform:
   m_ObjectHideFlags: 0
@@ -8744,8 +8939,9 @@ MonoBehaviour:
   - {fileID: 1069498396}
   - {fileID: 1079940988}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1877592056
 Transform:
   m_ObjectHideFlags: 0
@@ -9038,8 +9234,9 @@ MonoBehaviour:
   - {fileID: 452614782}
   - {fileID: 912863442}
   color: 
-  isCake: 1
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1927044015
 Transform:
   m_ObjectHideFlags: 0
@@ -9425,8 +9622,9 @@ MonoBehaviour:
   - {fileID: 1781685679}
   - {fileID: 1332602251}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &1980420781
 Transform:
   m_ObjectHideFlags: 0
@@ -9683,6 +9881,7 @@ RectTransform:
   - {fileID: 101205401}
   - {fileID: 1684379430}
   - {fileID: 1419971637}
+  - {fileID: 947488565}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9967,8 +10166,9 @@ MonoBehaviour:
   - {fileID: 626651721}
   - {fileID: 1379891080}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &2111151764
 Transform:
   m_ObjectHideFlags: 0
@@ -10017,8 +10217,9 @@ MonoBehaviour:
   - {fileID: 1079940988}
   - {fileID: 1332602251}
   color: 
-  isCake: 0
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &2120549768
 Transform:
   m_ObjectHideFlags: 0
@@ -10068,8 +10269,9 @@ MonoBehaviour:
   - {fileID: 1496030841}
   - {fileID: 1195322865}
   color: 
-  isCake: 1
-  isStart: 0
+  IsCake: 0
+  IsStart: 0
+  IsRollAgain: 0
 --- !u!4 &2129546382
 Transform:
   m_ObjectHideFlags: 0
