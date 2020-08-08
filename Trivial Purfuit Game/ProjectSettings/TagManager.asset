@@ -13,6 +13,7 @@ TagManager:
   - DirectionChoice
   - Undefined
   - CorrectnessTextDisplay
+  - Timer
   layers:
   - Default
   - TransparentFX
