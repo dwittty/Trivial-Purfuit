@@ -181,89 +181,112 @@ public class PlayerToken : MonoBehaviour
 
     public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake) // square tokens
     {
+        string folderName = "";
+        string fileNameDecorator = "";
+        if(this.gameObject.name == "Player1")
+        {
+            folderName = "P1";
+            fileNameDecorator = "1";
+        }
+        else if (this.gameObject.name == "Player2")
+        {
+            folderName = "P2";
+            fileNameDecorator = "2";
+        }
+        else if (this.gameObject.name == "Player3")
+        {
+            folderName = "P3";
+            fileNameDecorator = "3";
+        }
+        else
+        {
+            folderName = "P4";
+            fileNameDecorator = "4";
+        }
+
         if (!hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/NoCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/NoCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && !hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/BlueCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && hasBlueCake && !hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedBlueCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/GreenCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/GreenCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && !hasBlueCake && hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedGreenCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedGreenCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueGreenCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/BlueGreenCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && hasBlueCake && hasGreenCake && !hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueGreenCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedBlueGreenCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/WhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/WhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && !hasBlueCake && !hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/BlueWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedBlueWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/GreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/GreenWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && !hasBlueCake && hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedGreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedGreenWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (!hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/BlueGreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/BlueGreenWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && hasBlueCake && !hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedBlueWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else if (hasRedCake && hasBlueCake && hasGreenCake && hasWhiteCake)
         {
-            Sprite sprite = Resources.Load("Sprites/Tiles3.0/RedBlueGreenWhiteCakeS", typeof(Sprite)) as Sprite;
+            Sprite sprite = Resources.Load($"Sprites/{folderName}/RedBlueGreenWhiteCakeS{fileNameDecorator}", typeof(Sprite)) as Sprite;
             UpdatePlayerTokenSprite(sprite);
         }
         else
