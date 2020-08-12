@@ -35,19 +35,19 @@ public class TurnBanner : MonoBehaviour
     {
         if (currentPlayerTurn == 1)
         {
-            return rc.Player1Name ?? "Player1";
+            return string.IsNullOrWhiteSpace(rc.Player1Name) ? "Player1" : rc.Player1Name;
         }
         else if (currentPlayerTurn == 2)
         {
-            return rc.Player2Name ?? "Player2";
+            return string.IsNullOrWhiteSpace(rc.Player2Name) ? "Player2" : rc.Player2Name;
         }
         else if (currentPlayerTurn == 3)
         {
-            return rc.Player3Name ?? "Player3";
+            return string.IsNullOrWhiteSpace(rc.Player3Name) ? "Player3" : rc.Player3Name;
         }
         else if (currentPlayerTurn == 4)
         {
-            return rc.Player4Name ?? "Player4";
+            return string.IsNullOrWhiteSpace(rc.Player4Name) ? "Player4" : rc.Player4Name;
         }
         else
         {

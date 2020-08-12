@@ -30,19 +30,19 @@ public class Player : MonoBehaviour
         RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
         if(this.gameObject.name == "Player1")
         {
-            PlayerName = rc.Player1Name ?? "Player1";
+            PlayerName = string.IsNullOrWhiteSpace(rc.Player1Name) ? "Player1" : rc.Player1Name;
         }
         else if (this.gameObject.name == "Player2")
         {
-            PlayerName = rc.Player2Name ?? "Player2";
+            PlayerName = string.IsNullOrWhiteSpace(rc.Player2Name) ? "Player2" : rc.Player2Name;
         }
         else if (this.gameObject.name == "Player3")
         {
-            PlayerName = rc.Player3Name ?? "Player3";
+            PlayerName = string.IsNullOrWhiteSpace(rc.Player3Name) ? "Player3" : rc.Player3Name;
         }
         else if (this.gameObject.name == "Player4")
         {
-            PlayerName = rc.Player4Name ?? "Player4";
+            PlayerName = string.IsNullOrWhiteSpace(rc.Player4Name) ? "Player4" : rc.Player4Name;
         }
     }
 
