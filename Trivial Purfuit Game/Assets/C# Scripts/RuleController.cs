@@ -290,7 +290,7 @@ public class RuleController : MonoBehaviour
     {
         _currentPlayersTurn = ((_currentPlayersTurn) % _numUsers) + 1; //increment turn
         var turnBanner = FindObjectOfType<TurnBanner>();
-        turnBanner.UpdateTurnBanner(_currentPlayersTurn.ToString());
+        turnBanner.UpdateTurnBanner(_currentPlayersTurn);
         ActivateQuestionAnswerGroup(false);
         EnableDiceButton();
         DisableAndResetTimer();

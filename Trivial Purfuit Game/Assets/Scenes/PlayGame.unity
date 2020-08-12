@@ -728,6 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 288dcc098f5d050488cba3b023b88b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rc: {fileID: 0}
 --- !u!114 &101205403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1381,6 +1382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   hasRedCake: 0
   hasBlueCake: 0
   hasGreenCake: 0
@@ -1722,6 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   hasRedCake: 0
   hasBlueCake: 0
   hasGreenCake: 0
@@ -3711,7 +3714,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -126, y: -135}
+  m_AnchoredPosition: {x: -109, y: -135}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861650213
@@ -6586,6 +6589,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   hasRedCake: 0
   hasBlueCake: 0
   hasGreenCake: 0
@@ -8674,6 +8678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdfe01980d43a342be2381cc0de9f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerName: 
   hasRedCake: 0
   hasBlueCake: 0
   hasGreenCake: 0
