@@ -31,6 +31,11 @@ public class RuleController : MonoBehaviour
     private int _currentPlayersTurn=1;
     private int _numUsers = 2;
 
+    public string Player1Name;
+    public string Player2Name;
+    public string Player3Name;
+    public string Player4Name;
+
     public RuleController()
     {
         //generate instances

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 
 public class PlayerSelectionBehavior : MonoBehaviour
 {
@@ -35,7 +36,7 @@ public class PlayerSelectionBehavior : MonoBehaviour
         print(toggle.name + "status: " + status);        
     }
 
-    //Returns the current 
+    //Returns the current number of players for game
     public int GetNumberOfPlayersForGame()
     {
         if (toggle2.isOn)
@@ -73,11 +74,34 @@ public class PlayerSelectionBehavior : MonoBehaviour
             }
 
         }
+        UpdatePlayerNameInputVisibility();
 
-        decideTurnOrder();      
+        DecideTurnOrder();      
     }
 
-    private void decideTurnOrder()  //logic to decide turn order by rolling a dice. Currently, automatically run the dice and set the turn order.
+    private void UpdatePlayerNameInputVisibility()
+    {
+        var numPlayers = GetNumberOfPlayersForGame();
+        var inputParentObject = GameObject.FindGameObjectWithTag("PlayerNameInput");
+
+        if (numPlayers == 2)
+        {
+           inputParentObject.transform.Find("InputField_P3").gameObject.SetActive(false);
+           inputParentObject.transform.Find("InputField_P4").gameObject.SetActive(false);
+        }
+        else if( numPlayers == 3)
+        {
+            inputParentObject.transform.Find("InputField_P3").gameObject.SetActive(true);
+            inputParentObject.transform.Find("InputField_P4").gameObject.SetActive(false);
+        }
+        else if(numPlayers == 4)
+        {
+            inputParentObject.transform.Find("InputField_P3").gameObject.SetActive(true);
+            inputParentObject.transform.Find("InputField_P4").gameObject.SetActive(true);
+        }
+    }
+
+    private void DecideTurnOrder()  //logic to decide turn order by rolling a dice. Currently, automatically run the dice and set the turn order.
     {
         turnOrder = new List<Player>();
 
