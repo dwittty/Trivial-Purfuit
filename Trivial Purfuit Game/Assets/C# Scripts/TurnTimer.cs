@@ -25,6 +25,10 @@ public class TurnTimer : MonoBehaviour
             if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
+                if(timeRemaining < 10)
+                {
+                    timeText.color = Color.red;
+                }
                 DisplayTime(timeRemaining);
             }
             else
