@@ -14,7 +14,8 @@ public class TurnBanner : MonoBehaviour
         rc = FindObjectOfType<RuleController>() ?? new RuleController();
         var currentPlayer = rc.GetCurrentTurn();
         var currenPlayerName = GetCurrentPlayerName(rc, currentPlayer);
-        guiTextObject.text = $"{currenPlayerName}'s Turn";
+        var color = GetCurrentPlayerColor(currentPlayer);
+        guiTextObject.text = $"<color={color}>{currenPlayerName}'s Turn</color>";
     }
 
     // Update is called once per frame
@@ -25,12 +26,32 @@ public class TurnBanner : MonoBehaviour
 
     public void UpdateTurnBanner(int player)
     {
-        var name = GetCurrentPlayerName(rc, player);
+        var currenPlayerName = GetCurrentPlayerName(rc, player);
         var guiTextObject = this.gameObject.GetComponent<Text>();
-        guiTextObject.text = $"{name}'s Turn";
+        var color = GetCurrentPlayerColor(player);
+        guiTextObject.text = $"<color={color}>{currenPlayerName}'s Turn</color>";
     }
-      
     
+    //returns the hex for the current player's color
+    public string GetCurrentPlayerColor(int player)
+    {
+        if(player == 1)
+        {
+            return "#880015";
+        }
+        if (player == 2)
+        {
+            return "#ffffff";
+        }
+        if (player == 3)
+        {
+            return "#2d36a8";
+        }
+        else
+        {
+            return "#177d36";
+        }
+    }
     public string GetCurrentPlayerName(RuleController rc, int currentPlayerTurn)
     {
         if (currentPlayerTurn == 1)

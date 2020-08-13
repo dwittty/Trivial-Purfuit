@@ -24,7 +24,7 @@ public class DiceRoller: MonoBehaviour
     {
         if (isRolling)
         {
-            textField.text = "The dice result is: ?";
+            textField.text = "Moves Left: ?";
         }        
     }
 
@@ -71,7 +71,7 @@ public class DiceRoller: MonoBehaviour
         }
         //after animation of random images, update to final result from rule controller
         Debug.Log($"You rolled a {finalResult}.");
-        textField.text = "The dice result is: " + finalResult.ToString();
+        textField.text = "Moves Left: " + finalResult.ToString();
         Debug.Log($"User moved by {finalResult}. Location updated.");
 
         this.transform.GetChild(0).GetComponent<Image>().sprite = diceImages[finalResult - 1];

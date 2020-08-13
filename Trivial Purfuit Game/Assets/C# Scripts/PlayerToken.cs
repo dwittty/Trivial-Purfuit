@@ -55,6 +55,7 @@ public class PlayerToken : MonoBehaviour
             {
                 if (moveQueue[moveQueueIndex] != null) //null happens when waiting for user input at an intersection, there's more spaces to move but we don't know what they are yet.
                 {
+                    UpdateMovesRemainingText();
                     SetNewTargetPosition(moveQueue[moveQueueIndex].transform.position);
                     moveQueueIndex++;
                 }
@@ -63,7 +64,7 @@ public class PlayerToken : MonoBehaviour
             {
                 //no spaces remaining in the move, token has moved to the designated location, and a new question has not yet been delivered to the user
                 if (spacesRemainingInMove == 0 && newQuestionNeeded)
-                {
+                {                   
                     newQuestionNeeded = false;
                     //move is complete, ask ruleController for a question:
                     RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
@@ -83,6 +84,15 @@ public class PlayerToken : MonoBehaviour
             }
         }        
         this.transform.position = Vector3.SmoothDamp(this.transform.position, targetPosition, ref velocity, smoothTime);
+    }
+
+    private void UpdateMovesRemainingText()
+    {
+        var movesRemainingText = FindObjectsOfType<Text>().FirstOrDefault(x => x.name == "MovesRemainingText");
+        var lastCharacter = movesRemainingText.text.Substring(movesRemainingText.text.Length - 1);
+        int previousSpacesLeft;
+        int.TryParse(lastCharacter, out previousSpacesLeft);
+        movesRemainingText.text = $"Moves Left: {previousSpacesLeft - 1}";
     }
 
     /*public void SetSpriteBasedOnCakeStatus(bool hasRedCake, bool hasBlueCake, bool hasGreenCake, bool hasWhiteCake) // round tokens, commented out for testing square tokens
@@ -334,7 +344,11 @@ public class PlayerToken : MonoBehaviour
 
     //moves the player token until the dice value is used up or another branch is encountered, at which point the user is prompted for a choice again via ChooseDirectionToMove()
     public void MoveToken(Tile tileSelectedByUser)
-    {
+    {   
+        //update here in case a new direction is chosen while the token is still in transit to the intersection
+        var movesRemainingText = FindObjectsOfType<Text>().FirstOrDefault(x => x.name == "MovesRemainingText");                    
+        movesRemainingText.text = $"Moves Left: {spacesRemainingInMove}";
+
         newQuestionNeeded = true;
         moveQueue = new Tile[spacesRemainingInMove];
         int spacesToMoveLocal = spacesRemainingInMove;
