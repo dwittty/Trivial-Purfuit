@@ -29,6 +29,10 @@ public class TurnTimer : MonoBehaviour
                 {
                     timeText.color = Color.red;
                 }
+                else
+                {
+                    timeText.color = Color.white;
+                }
                 DisplayTime(timeRemaining);
             }
             else
