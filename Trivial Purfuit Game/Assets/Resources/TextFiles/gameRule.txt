@@ -1,0 +1,48 @@
+OBJECT OF THE GAME
+
+The winner is the player who first returns to the center square and correctly answers a question in a category chosen by the other players. Before attempting a game-winning question, a player must land in each of the four cake square tiles and correctly answer a question.
+
+START OF PLAY
+
+2-4 players start a game of Trivial Purfuit.  The player with first turn rolls the die and, starting from the center square, moves the token the indicated number of spaces in any direction. 
+
+When a token lands in a colored tile square or a cake square tile, the player is asked a question in that category.
+
+The categories are color-coded and related to the Declaration of Independence and the Continental Congress, which approved the document in 1776:
+
+   Red...................................People
+   White.................................Events
+   Blue..................................Places
+   Green.................................Independence Day Holiday
+
+The question and four possible answers will be displayed and a 30 second timer will begin once a player lands in a colored tile square or cake square tile.
+
+If the player correctly answers the question, the turn continues with another roll of the die. If the player answers incorrectly, the turn passes to the next player.
+
+A move may include a change of direction with each die roll or at an intersection, but backtracking is not allowed. A player must always move the number of spaces shown on the die.
+
+CONTINUATION OF PLAY
+
+When a player correctly answers a question in a cake square tile the appropriate cake square is placed in the player's token. If the player answers incorrectly, the token must leave the headquarters on the 
+next turn and later re-enter it for the player to attempt another question for credit.
+
+A player landing in one of the 4 "Roll again" spaces continues the turn by rolling the die again.
+
+When a token lands in the center square before the player has collected the four cake squares to be able to win the game, the center square is treated as a wild-card space and the player chooses the category for the subsequent question.
+
+Any number of tokens may occupy the same space.
+
+WINNING THE GAME
+
+After a player has correctly answered a question in all cake square tiles, the player's token must make its way to the center square to attempt to win the game.
+
+When the token lands in the center square, the opposing players select the category for a final question, by simple agreement or a vote, and select the appropriate color square on the screen.
+
+If the question is answered correctly, the game is won. If it is answered incorrectly, the player 
+must leave the center square on the next turn and re-enter it for another question.
+
+Because a correct answer always means another roll of the die, a player may win the game on the first turn.
+
+These rules were adapted from https://web.archive.org/web/20071017153134/http://gameroom.com/ gamebits/RULES/076_Trivial_Pursuit_Rules.html to meet this game’s requirements and play. 
+
+
