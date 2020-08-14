@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class RuleController : MonoBehaviour
+public class RuleController : Singleton<RuleController>
 {
     //private variables
     
@@ -118,7 +118,7 @@ public class RuleController : MonoBehaviour
     }
 
 
-    public void receiveUserLocation(float locationX,float locationY)
+    public void ReceiveUserLocation(float locationX,float locationY)
     {
         _userLocationX = locationX;
         _userLocationY = locationY;
@@ -253,7 +253,7 @@ public class RuleController : MonoBehaviour
     }
 
 
-    public bool sendUpdatedCakeSquare()
+    public bool SendUpdatedCakeSquare()
     {
         Debug.Log($"RuleController asks cake square to update status.");
         return _css.getStatus(_userNumber, _locationColor);

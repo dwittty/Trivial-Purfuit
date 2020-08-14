@@ -16,13 +16,7 @@ public class UpdateCakeSquare : MonoBehaviour
         
     }
     public void SetUpdate()
-    {
-
-        RuleController rc = new RuleController();
-        
-        rc.sendUpdatedCakeSquare();
-        
-
-
+    {      
+        RuleController.Instance.SendUpdatedCakeSquare();        
     }
 }

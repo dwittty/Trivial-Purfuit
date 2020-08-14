@@ -34,9 +34,8 @@ public class DiceRoller: MonoBehaviour
         {
             DisableRollDiceButton();
 
-            //int randomInt = Random.Range(1, 7); //Return number 1 to 6 (the top of the range is exclusive, not inclusive)        
-            RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
-            int diceResult = rc.rollDice();
+            //int randomInt = Random.Range(1, 7); //Return number 1 to 6 (the top of the range is exclusive, not inclusive)                    
+            int diceResult = RuleController.Instance.rollDice();
 
             //animate random images for length of time specified in seconds by the float value
             StartCoroutine(RollDiceAnimator(1f, diceResult));                                             

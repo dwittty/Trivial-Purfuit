@@ -18,11 +18,10 @@ public class ColorSelection : MonoBehaviour
     }
 
     public void ColorSelected()
-    {
-        var rc = FindObjectOfType<RuleController>() ?? new RuleController();
+    {        
         //color selected, hide this interface
         this.gameObject.transform.parent.gameObject.SetActive(false);
         //serve up a question with the selected color
-        rc.GetAndDisplayNewTriviaQuestion(color);
+        RuleController.Instance.GetAndDisplayNewTriviaQuestion(color);
     }
 }

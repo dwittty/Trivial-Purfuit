@@ -20,10 +20,9 @@ public class AnswerSelection : MonoBehaviour
 
     public void AnswerSelected()
     {
-        var rc = FindObjectOfType<RuleController>() ?? new RuleController();
         //hide the question and answers so the user can't answer twice
         this.gameObject.transform.parent.gameObject.SetActive(false);
         //check answer (also displays correct/incorrect, awards cake etc
-        rc.CheckAnswer(this.GetComponentInChildren<Text>().text);
+        RuleController.Instance.CheckAnswer(this.GetComponentInChildren<Text>().text);
     }
 }

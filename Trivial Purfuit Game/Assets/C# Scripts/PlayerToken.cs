@@ -66,19 +66,18 @@ public class PlayerToken : MonoBehaviour
                 if (spacesRemainingInMove == 0 && newQuestionNeeded)
                 {                   
                     newQuestionNeeded = false;
-                    //move is complete, ask ruleController for a question:
-                    RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController(); // will be null when debugging if you dont start from Scene 1.         
+                    //move is complete, ask ruleController for a question:                    
                     if (CurrentTile.IsStart)
                     {
-                        rc.PromptUserForColorSelection();
+                        RuleController.Instance.PromptUserForColorSelection();
                     }
                     else if (CurrentTile.IsRollAgain)
                     {
-                        rc.RollAgain();
+                        RuleController.Instance.RollAgain();
                     }
                     else
                     {
-                        rc.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
+                        RuleController.Instance.GetAndDisplayNewTriviaQuestion(CurrentTile.color);
                     }
                 }
             }
@@ -395,17 +394,16 @@ public class PlayerToken : MonoBehaviour
         pos.x += xOffset - xPositionOffset;  //adjust position by player offset 
         pos.y += yOffset - yPositionOffset;  //adjust position by player offset
 
-        RuleController rc = FindObjectOfType<RuleController>();
-        rc.receiveUserLocation(pos.x, pos.y);
+
+        RuleController.Instance.ReceiveUserLocation(pos.x, pos.y);
 
         targetPosition = pos;
         velocity = Vector3.zero;
     }
 
     internal static PlayerToken FindActivePlayerToken()
-    {
-        var ruleController = FindObjectOfType<RuleController>() ?? new RuleController();
-        var currentPlayer = ruleController.GetCurrentTurn();
+    {        
+        var currentPlayer = RuleController.Instance.GetCurrentTurn();
         var playerTokens = FindObjectsOfType<PlayerToken>().ToList();
         var activePlayer = playerTokens.FirstOrDefault(x => x.name.Contains(currentPlayer.ToString()));
         return activePlayer;

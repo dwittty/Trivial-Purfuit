@@ -5,15 +5,13 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class TurnBanner : MonoBehaviour
-{
-    public RuleController rc;
+{    
     // Start is called before the first frame update
     void Start()
     {
-        var guiTextObject = this.gameObject.GetComponent<Text>();
-        rc = FindObjectOfType<RuleController>() ?? new RuleController();
-        var currentPlayer = rc.GetCurrentTurn();
-        var currenPlayerName = GetCurrentPlayerName(rc, currentPlayer);
+        var guiTextObject = this.gameObject.GetComponent<Text>();        
+        var currentPlayer = RuleController.Instance.GetCurrentTurn();
+        var currenPlayerName = GetCurrentPlayerName(currentPlayer);
         var color = GetCurrentPlayerColor(currentPlayer);
         guiTextObject.text = $"<color={color}>{currenPlayerName}'s Turn</color>";
     }
@@ -26,7 +24,7 @@ public class TurnBanner : MonoBehaviour
 
     public void UpdateTurnBanner(int player)
     {
-        var currenPlayerName = GetCurrentPlayerName(rc, player);
+        var currenPlayerName = GetCurrentPlayerName(player);
         var guiTextObject = this.gameObject.GetComponent<Text>();
         var color = GetCurrentPlayerColor(player);
         guiTextObject.text = $"<color={color}>{currenPlayerName}'s Turn</color>";
@@ -52,23 +50,23 @@ public class TurnBanner : MonoBehaviour
             return "#177d36";
         }
     }
-    public string GetCurrentPlayerName(RuleController rc, int currentPlayerTurn)
+    public string GetCurrentPlayerName(int currentPlayerTurn)
     {
         if (currentPlayerTurn == 1)
         {
-            return string.IsNullOrWhiteSpace(rc.Player1Name) ? "Player1" : rc.Player1Name;
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player1Name) ? "Player1" : RuleController.Instance.Player1Name;
         }
         else if (currentPlayerTurn == 2)
         {
-            return string.IsNullOrWhiteSpace(rc.Player2Name) ? "Player2" : rc.Player2Name;
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player2Name) ? "Player2" : RuleController.Instance.Player2Name;
         }
         else if (currentPlayerTurn == 3)
         {
-            return string.IsNullOrWhiteSpace(rc.Player3Name) ? "Player3" : rc.Player3Name;
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player3Name) ? "Player3" : RuleController.Instance.Player3Name;
         }
         else if (currentPlayerTurn == 4)
         {
-            return string.IsNullOrWhiteSpace(rc.Player4Name) ? "Player4" : rc.Player4Name;
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player4Name) ? "Player4" : RuleController.Instance.Player4Name;
         }
         else
         {

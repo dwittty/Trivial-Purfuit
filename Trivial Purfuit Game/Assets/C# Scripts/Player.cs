@@ -26,23 +26,22 @@ public class Player : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
+    {        
         if(this.gameObject.name == "Player1")
         {
-            PlayerName = string.IsNullOrWhiteSpace(rc.Player1Name) ? "Player1" : rc.Player1Name;
+            PlayerName = string.IsNullOrWhiteSpace(RuleController.Instance.Player1Name) ? "Player1" : RuleController.Instance.Player1Name;
         }
         else if (this.gameObject.name == "Player2")
         {
-            PlayerName = string.IsNullOrWhiteSpace(rc.Player2Name) ? "Player2" : rc.Player2Name;
+            PlayerName = string.IsNullOrWhiteSpace(RuleController.Instance.Player2Name) ? "Player2" : RuleController.Instance.Player2Name;
         }
         else if (this.gameObject.name == "Player3")
         {
-            PlayerName = string.IsNullOrWhiteSpace(rc.Player3Name) ? "Player3" : rc.Player3Name;
+            PlayerName = string.IsNullOrWhiteSpace(RuleController.Instance.Player3Name) ? "Player3" : RuleController.Instance.Player3Name;
         }
         else if (this.gameObject.name == "Player4")
         {
-            PlayerName = string.IsNullOrWhiteSpace(rc.Player4Name) ? "Player4" : rc.Player4Name;
+            PlayerName = string.IsNullOrWhiteSpace(RuleController.Instance.Player4Name) ? "Player4" : RuleController.Instance.Player4Name;
         }
     }
 

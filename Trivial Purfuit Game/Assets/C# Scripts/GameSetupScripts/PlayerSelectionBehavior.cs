@@ -104,17 +104,15 @@ public class PlayerSelectionBehavior : MonoBehaviour
     private void DecideTurnOrder()  //logic to decide turn order by rolling a dice. Currently, automatically run the dice and set the turn order.
     {
         turnOrder = new List<Player>();
-
-        RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
-        //RuleController rc = new RuleController();
+                
         int temp;
         if (toggle2.isOn == true)
         {
             numPlayer = 2;
             turnOrder.Clear();
-            Player player1 = new Player("player1", 1, rc.rollDice());
+            Player player1 = new Player("player1", 1, RuleController.Instance.rollDice());
 
-            Player player2 = new Player("player2", 2, rc.rollDice());
+            Player player2 = new Player("player2", 2, RuleController.Instance.rollDice());
 
             turnOrder.Add(player1);
             turnOrder.Add(player2);
@@ -124,11 +122,11 @@ public class PlayerSelectionBehavior : MonoBehaviour
             numPlayer = 3;
             turnOrder.Clear();
 
-            Player player1 = new Player("player1", 1, rc.rollDice());
+            Player player1 = new Player("player1", 1, RuleController.Instance.rollDice());
 
-            Player player2 = new Player("player2", 2, rc.rollDice());
+            Player player2 = new Player("player2", 2, RuleController.Instance.rollDice());
 
-            Player player3 = new Player("player3", 3, rc.rollDice());
+            Player player3 = new Player("player3", 3, RuleController.Instance.rollDice());
 
             turnOrder.Add(player1);
             turnOrder.Add(player2);
@@ -138,13 +136,13 @@ public class PlayerSelectionBehavior : MonoBehaviour
         {
             numPlayer = 4;
             turnOrder.Clear();
-            Player player1 = new Player("player1", 1, rc.rollDice());
+            Player player1 = new Player("player1", 1, RuleController.Instance.rollDice());
 
-            Player player2 = new Player("player2", 2, rc.rollDice());
+            Player player2 = new Player("player2", 2, RuleController.Instance.rollDice());
 
-            Player player3 = new Player("player3", 3, rc.rollDice());
+            Player player3 = new Player("player3", 3, RuleController.Instance.rollDice());
 
-            Player player4 = new Player("player4", 4, rc.rollDice());
+            Player player4 = new Player("player4", 4, RuleController.Instance.rollDice());
 
             turnOrder.Add(player1);
             turnOrder.Add(player2);
@@ -175,7 +173,7 @@ public class PlayerSelectionBehavior : MonoBehaviour
             }
         });
 
-        rc.setTurnOrder(turnOrder);
+        RuleController.Instance.setTurnOrder(turnOrder);
     }
 
 }

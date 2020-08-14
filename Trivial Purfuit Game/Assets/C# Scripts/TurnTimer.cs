@@ -31,7 +31,7 @@ public class TurnTimer : MonoBehaviour
                 }
                 else
                 {
-                    timeText.color = Color.white;
+                    timeText.color = Color.white ;
                 }
                 DisplayTime(timeRemaining);
             }
@@ -46,9 +46,8 @@ public class TurnTimer : MonoBehaviour
         else
         {
             //timer no longer running, they ran out of time, end the turn
-            RuleController rc = FindObjectOfType<RuleController>() ?? new RuleController();
-            rc.DisplayMessage(5, "OUT OF TIME!", new Color32(205, 42, 44, 255));            
-            rc.EndTurn();
+            RuleController.Instance.DisplayMessage(5, "OUT OF TIME!", new Color32(205, 42, 44, 255));
+            RuleController.Instance.EndTurn();
         }
         
 
