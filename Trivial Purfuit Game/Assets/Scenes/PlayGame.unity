@@ -4248,12 +4248,12 @@ MonoBehaviour:
   isDisabled: 0
   isRolling: 0
   diceImages:
-  - {fileID: 21300000, guid: 76f9d9aadce06784a848c48d6027b571, type: 3}
-  - {fileID: 21300000, guid: e8e2234028ecfd641beef5c2ac7042f7, type: 3}
-  - {fileID: 21300000, guid: 9208ebff8dfc854429033b1f7a6a42e4, type: 3}
-  - {fileID: 21300000, guid: 15e3c9789d00ace49b43724ec713e6c9, type: 3}
-  - {fileID: 21300000, guid: 70a350cc50d27e84b9bfe780736703fc, type: 3}
-  - {fileID: 21300000, guid: 28fe289e108ab9f4ca909219cb5420c3, type: 3}
+  - {fileID: 21300000, guid: 7546022fd84b7104abead7f69d3a274a, type: 3}
+  - {fileID: 21300000, guid: e70a5aebffc3ed347bc768a650dc4d4b, type: 3}
+  - {fileID: 21300000, guid: 36bc40777aa32e440bc3173c44c49990, type: 3}
+  - {fileID: 21300000, guid: f3b914180bb78624cabf49be1026317a, type: 3}
+  - {fileID: 21300000, guid: 9f645c982f802d541ac137679ab62c93, type: 3}
+  - {fileID: 21300000, guid: 0c342170d8886f046a09c03a13cd7b50, type: 3}
 --- !u!114 &947488567
 MonoBehaviour:
   m_ObjectHideFlags: 0
