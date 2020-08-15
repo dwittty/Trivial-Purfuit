@@ -531,7 +531,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Scroll down to see the whole rule
+  m_Text: Scroll down to view the complete listing of the rules
 --- !u!222 &1077770119
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -951,7 +951,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Rule of Trivial Purfuit
+  m_Text: Trivial Purfuit Rules
 --- !u!222 &1981362343
 CanvasRenderer:
   m_ObjectHideFlags: 0
