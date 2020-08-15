@@ -20,7 +20,7 @@ public class StartNewGame : MonoBehaviour
 
     public void GoToFront()
     {
-        Destroy(FindObjectOfType<RuleController>());
+        RuleController.Instance.ResetGameState();
         SceneManager.LoadScene("GameSetup");
     }
 }

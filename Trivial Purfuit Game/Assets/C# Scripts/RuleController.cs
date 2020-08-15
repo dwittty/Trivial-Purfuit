@@ -14,7 +14,8 @@ public class RuleController : Singleton<RuleController>
     
     private int _userNumber;
     private string _userName;
-    private float _userLocationX;
+    private float _userLocationX;    
+
     private float _userLocationY;
     private int _locationColor;
     private int _selectedAnswer;
@@ -397,6 +398,19 @@ public class RuleController : Singleton<RuleController>
         var diceObject = FindObjectOfType<DiceRoller>();
         diceObject.EnableRollDiceButton();
     }
+
+    //reset everything to default values before returning to start page
+    internal void ResetGameState()
+    {
+         _userNumber = 2;
+         _winnerExist = false;
+         _currentPlayersTurn = 1;
+         _numUsers = 2;
+         Player1Name = null;
+         Player2Name = null;
+         Player3Name = null;
+         Player4Name = null;
+}
 
     #endregion
 
