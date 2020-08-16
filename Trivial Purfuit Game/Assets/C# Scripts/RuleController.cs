@@ -145,7 +145,7 @@ public class RuleController : Singleton<RuleController>
 
     internal void RollAgain()
     {        
-        DisplayMessage(5, "ROLL AGAIN!", new Color32(11, 137, 11, 255));
+        DisplayMessage(5, "ROLL AGAIN!", new Color32(0, 230, 0, 255));
         EnableDiceButton();        
     }
 
@@ -196,14 +196,14 @@ public class RuleController : Singleton<RuleController>
             else
             {
                 //Debug.Log($"Rule controller notifies Correct answer. Roll again.");
-                DisplayMessage(5, "CORRECT", new Color32(11, 137, 11, 255));                
+                DisplayMessage(5, "CORRECT!\nROLL AGAIN!", new Color32(0, 230, 0, 255));                
                 DispenseCake();
             }
         }        
         else
         {
             Debug.Log($"Rule controller notifies Wrong answer. Turn over");
-            DisplayMessage(5, "INCORRECT", new Color32(205, 42, 44, 255));            
+            DisplayMessage(5, "INCORRECT!", new Color32(205, 42, 44, 255));            
             EndTurn();            
         }
         //Enable dice, this will either continue current turn if they were correct or allow the next player to roll if they were wrong
@@ -459,7 +459,8 @@ public class RuleController : Singleton<RuleController>
         }
         else
         {
-            return "#177d36";
+            //return "#177d36";
+            return "#00E600";
         }
     }
 

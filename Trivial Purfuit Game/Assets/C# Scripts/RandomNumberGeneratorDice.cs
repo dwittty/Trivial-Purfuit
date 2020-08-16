@@ -26,7 +26,7 @@ public class RandomNumberGeneratorDice
     {
         System.Random random = new System.Random(Guid.NewGuid().GetHashCode());
         _rand =random.Next(_diceMin,_diceMax);
-        _rand = 4;
+        //_rand = 4;
         return _rand;
     }
 }
