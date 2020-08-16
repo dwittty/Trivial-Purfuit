@@ -541,7 +541,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.6226415, g: 0.6132789, b: 0.24377, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -743,6 +743,7 @@ GameObject:
   - component: {fileID: 2047573825}
   - component: {fileID: 2047573827}
   - component: {fileID: 2047573826}
+  - component: {fileID: 2047573828}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -792,7 +793,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 50
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 3
     m_MaxSize: 50
     m_Alignment: 1
@@ -810,3 +811,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047573824}
   m_CullTransparentMesh: 0
+--- !u!114 &2047573828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047573824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae2ca4b26a017ae40a10585fd92593a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

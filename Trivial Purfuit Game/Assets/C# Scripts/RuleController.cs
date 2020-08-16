@@ -187,7 +187,7 @@ public class RuleController : Singleton<RuleController>
             //var playerTokens = FindObjectsOfType<PlayerToken>();
             //var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
             //Debug.Log($"Current position is ({temp[0]},{temp[1]}). ");
-            if (checkCenter() == true && checkFullCake() == true)
+            if (checkCenter() == true && CheckFullCake() == true)
             {
                 _winnerExist = true;
                 Debug.Log($"winner is Player {_currentPlayersTurn}");
@@ -225,7 +225,7 @@ public class RuleController : Singleton<RuleController>
     }
 
 
-    private bool checkFullCake()
+    private bool CheckFullCake()
     {
         var playerTokens = FindObjectsOfType<PlayerToken>();
         var activeToken = playerTokens.FirstOrDefault(x => x.name == "Player" + _currentPlayersTurn);
@@ -373,10 +373,95 @@ public class RuleController : Singleton<RuleController>
     {
         //need to find inactive objects using the parent because the FindObjectOfType method won't find inactive objects
         var canvas = FindObjectsOfType<Canvas>().FirstOrDefault(x => x.name == "Canvas");
-        var questionAnswerGroup = FindObject(canvas.gameObject, "CategorySelectGroup");
-        questionAnswerGroup.SetActive(activate);
+        var categorySelectGroup = FindObject(canvas.gameObject, "CategorySelectGroup");
+        SetTextForCategorySelection(categorySelectGroup.GetComponentInChildren<Text>());
+        categorySelectGroup.SetActive(activate);
     }
 
+    //If current player doesn't have full cake, ask them to choose the category
+    //If current player has full cake, ask the opponents to select the category
+    private void SetTextForCategorySelection(Text textGameObject)
+    {
+        if (CheckFullCake())
+        {
+            //ask the opponents to choose the question
+            var opponents = GetOpponentPlayerList(_currentPlayersTurn);
+            string opponentNameAndColorString = BuildTextFromOpponentList(opponents);
+            var currentPlayercolor = GetPlayerColor(_currentPlayersTurn);
+            var currentPlayerName = GetPlayerName(_currentPlayersTurn);
+            textGameObject.text = $"{opponentNameAndColorString}\nPlease select a color categroy from which <color={currentPlayercolor}>{currentPlayerName}</color> will receive a question:";
+        }
+        else
+        {
+            //ask the current player to choose the question
+            var color = GetPlayerColor(_currentPlayersTurn);
+            var currentPlayerName = GetPlayerName(_currentPlayersTurn);
+            textGameObject.text = $"<color={color}>{currentPlayerName}</color>,\nPlease select a color categroy from which to receive a question:";
+        }
+    }
+
+    private string BuildTextFromOpponentList(List<int> opponents)
+    {
+        string nameAndColor = "";
+        for(int i = 0; i < opponents.Count; i++)
+        {
+            var substring = $"<color={GetPlayerColor(opponents[i])}>{GetPlayerName(opponents[i])}</color>, ";
+            nameAndColor += substring;
+        }
+        return nameAndColor;
+    }
+
+    private List<int> GetOpponentPlayerList(int currentPlayersTurn)
+    {
+        var possiblePlayers = new List<int> { 1, 2, 3, 4 };
+        var opponents = possiblePlayers.Where(x => x <= _numUsers && x != currentPlayersTurn);
+        return opponents.ToList();
+    }
+
+    public string GetPlayerName(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player1Name) ? "Player1" : RuleController.Instance.Player1Name;
+        }
+        else if (playerNumber == 2)
+        {
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player2Name) ? "Player2" : RuleController.Instance.Player2Name;
+        }
+        else if (playerNumber == 3)
+        {
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player3Name) ? "Player3" : RuleController.Instance.Player3Name;
+        }
+        else if (playerNumber == 4)
+        {
+            return string.IsNullOrWhiteSpace(RuleController.Instance.Player4Name) ? "Player4" : RuleController.Instance.Player4Name;
+        }
+        else
+        {
+            return "Error Getting Player Name";
+        }
+    }
+
+    //returns the hex for the current player's color
+    public string GetPlayerColor(int playerNumber)
+    {
+        if (playerNumber == 1)
+        {
+            return "#880015";
+        }
+        if (playerNumber == 2)
+        {
+            return "#ffffff";
+        }
+        if (playerNumber == 3)
+        {
+            return "#2d36a8";
+        }
+        else
+        {
+            return "#177d36";
+        }
+    }
 
     private void SetAndActivateTimer()
     {
